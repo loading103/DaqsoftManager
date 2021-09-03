@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.daqsoft.module_workbench.R" />
+
+        <variable
+            name="viewModel"
+            type="com.daqsoft.module_workbench.viewmodel.AnnouncementCommentViewModel" />
+
+        <variable
+            name="untreated"
+            type="com.daqsoft.library_common.pojo.vo.Untreated" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="@color/white_ffffff"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <include
+            app:toolbarViewModel="@{viewModel.toolbarViewModel}"
+            android:id="@+id/include"
+            layout="@layout/layout_toolbar">
+        </include>
+
+        <View
+            android:id="@+id/include_line"
+            android:background="@color/gray_e8e8e8"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/include"
+            android:layout_width="0dp"
+            android:layout_height="1dp">
+        </View>
+
+        <EditText
+            android:text="@={viewModel.comment}"
+            android:gravity="top|left"
+            android:padding="20dp"
+            android:autoLink="web"
+            android:hint="记录这一刻，发表你的观点..."
+            android:textColorHint="@color/gray_999999"
+            android:textSize="15sp"
+            android:textColor="@color/black_333333"
+            android:id="@+id/content"
+            android:background="@null"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/include_line"
+            app:layout_constraintBottom_toTopOf="@+id/send"
+            android:layout_width="0dp"
+            android:layout_height="0dp">
+        </EditText>
+
+
+        <com.ruffian.library.widget.RTextView
+            onClickCommand="@{viewModel.sendOnClick}"
+            android:id="@+id/send"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:textSize="16sp"
+            android:text="发送"
+            app:background_normal="@color/red_fa4848"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="0dp"
+            android:layout_height="52dp">
+        </com.ruffian.library.widget.RTextView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

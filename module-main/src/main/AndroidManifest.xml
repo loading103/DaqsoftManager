@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.daqsoft.module_main">
+
+    <application>
+        <!--在自己组件中注册Activity-->
+        <activity android:name=".activity.MainActivity" android:theme="@style/MainTheme"/>
+
+        <activity
+            android:screenOrientation="behind"
+            android:launchMode="singleInstance"
+            android:theme="@style/DialogActivityTheme"
+            android:name=".activity.DialogActivity">
+        </activity>
+
+        <activity android:name=".activity.WelcomeActivity" android:theme="@style/SplashTheme"/>
+
+        <!-- 点击通知时，要打开的 activity -->
+        <activity
+            android:theme="@style/MainTheme"
+            android:name="com.daqsoft.module_main.activity.OpenClickActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+                <category android:name="android.intent.category.DEFAULT" />
+                <action android:name="com.daqsoft.module_main.activity.OpenClickActivity" />
+            </intent-filter>
+        </activity>
+
+        <activity
+            android:screenOrientation="behind"
+            android:launchMode="singleInstance"
+            android:theme="@style/DialogActivityTheme"
+            android:name=".activity.UpdateActivity" />
+
+
+        <service android:name=".service.UpdateService" />
+        <service android:name=".service.NewUpdateService" />
+
+        <receiver android:name=".service.receiver.UpdateBroadcastReceiver">
+            <intent-filter>
+                <action android:name="android.intent.action.DOWNLOAD_COMPLETE" />
+                <!-- <action android:name="android.intent.action.PACKAGE_INSTALL" /> -->
+            </intent-filter>
+        </receiver>
+
+    </application>
+
+</manifest>

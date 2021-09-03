@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.daqsoft.module_workbench.R" />
+
+        <variable
+            name="url"
+            type="String" />
+
+    </data>
+
+    <com.ruffian.library.widget.RConstraintLayout
+        android:background="@color/transparent"
+        android:id="@+id/avatar_cl"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            app:layout_constraintRight_toRightOf="@+id/content"
+            app:layout_constraintLeft_toLeftOf="@+id/content"
+            android:id="@+id/icon"
+            android:src="@mipmap/dk_dkdd"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </ImageView>
+
+        <TextView
+            android:id="@+id/content"
+            android:layout_marginTop="6dp"
+            app:layout_constraintTop_toBottomOf="@+id/icon"
+            android:text="打卡地点"
+            android:textStyle="bold"
+            android:textColor="@color/red_fa4848"
+            android:textSize="12sp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </TextView>
+
+    </com.ruffian.library.widget.RConstraintLayout>
+
+</layout>

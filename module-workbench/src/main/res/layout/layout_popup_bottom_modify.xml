@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="@color/red_fa4848"
+        android:layout_width="match_parent"
+        android:layout_height="48dp">
+
+        <View
+            android:id="@+id/line"
+            android:background="@color/white_ffffff_alpha50"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="1dp"
+            android:layout_height="22dp">
+        </View>
+
+
+        <TextView
+            android:drawablePadding="6dp"
+            android:drawableLeft="@mipmap/bmwj_modify"
+            android:gravity="center"
+            android:text="修改"
+            android:textColor="@color/white_ffffff"
+            android:textSize="15sp"
+            app:layout_constraintRight_toLeftOf="@+id/line"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/modify"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </TextView>
+
+        <TextView
+            android:drawablePadding="6dp"
+            android:drawableLeft="@mipmap/bmwj_delete"
+            android:gravity="center"
+            android:text="删除"
+            android:textColor="@color/white_ffffff"
+            android:textSize="15sp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/line"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </TextView>
+
+
+        <androidx.constraintlayout.widget.Group
+            android:id="@+id/group"
+            app:constraint_referenced_ids="line,modify,delete"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </androidx.constraintlayout.widget.Group>
+
+        <TextView
+            android:visibility="gone"
+            android:drawablePadding="6dp"
+            android:drawableLeft="@mipmap/bmwj_delete"
+            android:gravity="center"
+            android:text="删除"
+            android:textColor="@color/white_ffffff"
+            android:textSize="15sp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/delete_full"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </TextView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

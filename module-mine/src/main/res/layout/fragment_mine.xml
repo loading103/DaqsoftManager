@@ -1,0 +1,302 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.daqsoft.module_mine.R" />
+        <import type="android.view.View" />
+
+        <variable
+            name="viewModel"
+            type="com.daqsoft.module_mine.viewmodel.MineViewModel" />
+
+    </data>
+
+    <com.scwang.smart.refresh.layout.SmartRefreshLayout
+        android:background="@color/white_ffffff"
+        android:id="@+id/refresh"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/constraint_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/coordinator_layout"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="0dp"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.appbar.AppBarLayout
+                android:orientation="vertical"
+                android:id="@+id/appbar_layout"
+                android:background="@android:color/transparent"
+                app:elevation="0dp"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <com.google.android.material.appbar.CollapsingToolbarLayout
+                    android:id="@+id/collapsing_toolbar_layout"
+                    app:contentScrim="@android:color/transparent"
+                    android:fitsSystemWindows="true"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    app:layout_scrollFlags="scroll">
+
+                    <ImageView
+                        app:placeholderRes="@{R.mipmap.mine_bg_9png}"
+                        app:url="@{viewModel.employeeInfo.employeeAppBackground}"
+                        app:onClickCommand="@{viewModel.backgroundIconOnClick}"
+                        android:id="@+id/bg"
+                        android:scaleType="centerCrop"
+                        android:src="@mipmap/mine_bg_9png"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                    </ImageView>
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+
+                        <ImageView
+                            android:id="@+id/weather"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginTop="34dp"
+                            android:src="@mipmap/mine_ts"
+                            android:layout_width="28dp"
+                            android:layout_height="28dp">
+                        </ImageView>
+
+                        <com.ruffian.library.widget.RTextView
+                            android:id="@+id/day"
+                            android:textSize="11sp"
+                            android:textColor="@color/black_333333"
+                            android:text="@{viewModel.welcomeObservable.workDayInfo}"
+                            android:paddingHorizontal="8dp"
+                            android:gravity="center"
+                            android:layout_marginLeft="6dp"
+                            app:layout_constraintLeft_toRightOf="@+id/weather"
+                            app:layout_constraintBottom_toBottomOf="@+id/weather"
+                            app:layout_constraintTop_toTopOf="@+id/weather"
+                            android:minHeight="22dp"
+                            app:background_normal="@color/white_ffffff"
+                            app:corner_radius_top_left="3dp"
+                            app:corner_radius_bottom_left="11dp"
+                            app:corner_radius_top_right="11dp"
+                            app:corner_radius_bottom_right="11dp"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+                        </com.ruffian.library.widget.RTextView>
+
+                        <ImageView
+                            app:onClickCommand="@{viewModel.personalInfoOnClick}"
+                            android:id="@+id/set_up"
+                            android:src="@mipmap/mine_sz"
+                            android:layout_marginTop="32dp"
+                            android:layout_marginRight="20dp"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:layout_width="32dp"
+                            android:layout_height="32dp">
+                        </ImageView>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:id="@+id/slogan_cl"
+                            android:layout_marginTop="9dp"
+                            app:layout_constraintRight_toRightOf="@+id/set_up"
+                            app:layout_constraintLeft_toLeftOf="@+id/weather"
+                            app:layout_constraintTop_toBottomOf="@+id/weather"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content">
+
+                            <com.ruffian.library.widget.RTextView
+                                app:isVisible="@{!viewModel.welcomeObservable.careInfo.isEmpty()}"
+                                app:onClickCommand="@{viewModel.TopUrlOnClick}"
+                                app:layout_constraintLeft_toLeftOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                android:gravity="center_vertical"
+                                android:id="@+id/slogan"
+                                android:textSize="11sp"
+                                android:text="@{viewModel.welcomeObservable.careInfo}"
+                                android:textColor="@color/white_f5f5f5"
+                                app:background_normal="@color/black_000000_alpha60"
+                                android:padding="5dp"
+                                android:includeFontPadding="false"
+                                android:drawablePadding="6dp"
+                                android:drawableLeft="@mipmap/mine_jt"
+                                android:minHeight="20dp"
+                                app:corner_radius="50dp"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+                            </com.ruffian.library.widget.RTextView>
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+                        <com.ruffian.library.widget.RConstraintLayout
+                            app:onClickCommand="@{viewModel.headViewOnClick}"
+                            android:layout_marginTop="44dp"
+                            android:padding="2dp"
+                            android:id="@+id/avatar_cl"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/slogan_cl"
+                            app:background_normal="@color/white_ffffff"
+                            app:corner_radius="76dp"
+                            android:layout_width="76dp"
+                            android:layout_height="76dp">
+                            <ImageView
+                                android:scaleType="centerCrop"
+                                android:src="@mipmap/mine_bmkq_tx_default"
+                                app:placeholderRes="@{R.mipmap.mine_bmkq_tx_default}"
+                                app:url="@{viewModel.employeeInfo.employeeAvatar}"
+                                app:circle="@{true}"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintRight_toRightOf="parent"
+                                app:layout_constraintLeft_toLeftOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                android:id="@+id/avatar"
+                                android:layout_width="0dp"
+                                android:layout_height="0dp">
+                            </ImageView>
+                        </com.ruffian.library.widget.RConstraintLayout>
+
+                        <TextView
+                            android:id="@+id/name"
+                            android:text='@{viewModel.EmployeeInfo.employeeName??""}'
+                            android:textStyle="bold"
+                            android:textColor="@color/white_ffffff"
+                            android:textSize="20sp"
+                            android:layout_marginTop="16dp"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/avatar_cl"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+                        </TextView>
+
+                        <TextView
+                            android:id="@+id/department"
+                            android:text='@{viewModel.department}'
+                            android:textSize="13sp"
+                            android:textColor="@color/white_f5f5f5"
+                            android:layout_marginTop="11dp"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/name"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+                        </TextView>
+
+                        <TextView
+                            app:isVisible="@{!viewModel.employeeInfo.employeeHobby.isEmpty()}"
+                            android:id="@+id/hobby"
+                            android:singleLine="true"
+                            android:gravity="center"
+                            android:layout_marginHorizontal="20dp"
+                            android:text="@{viewModel.employeeInfo.employeeHobby}"
+                            android:textColor="@color/white_f5f5f5"
+                            android:textSize="13sp"
+                            android:layout_marginTop="11dp"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/department"
+                            android:layout_width="0dp"
+                            android:layout_height="wrap_content">
+                        </TextView>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_marginBottom="50dp"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            android:layout_marginHorizontal="30dp"
+                            android:layout_marginTop="20dp"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toBottomOf="@+id/hobby"
+                            android:layout_width="0dp"
+                            android:layout_height="36dp">
+                            <androidx.recyclerview.widget.RecyclerView
+                                android:layout_width="wrap_content"
+                                android:layout_height="0dp"
+                                app:layout_constraintBottom_toBottomOf="parent"
+                                app:layout_constraintRight_toRightOf="parent"
+                                app:layout_constraintLeft_toLeftOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                app:itemAnimator="@{null}"
+                                app:itemBinding="@{viewModel.itemBinding}"
+                                app:items="@{viewModel.observableList}"
+                                android:id="@+id/department_colleagues">
+                            </androidx.recyclerview.widget.RecyclerView>
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+
+                </com.google.android.material.appbar.CollapsingToolbarLayout>
+
+
+                <net.lucode.hackware.magicindicator.MagicIndicator
+                    app:layout_scrollFlags="scroll"
+                    android:paddingTop="16dp"
+                    android:layout_marginTop="-18dp"
+                    android:id="@+id/indicator"
+                    android:layout_width="match_parent"
+                    android:layout_height="62dp"
+                    android:layout_below="@+id/summary"
+                    android:background="@drawable/shape_fillet_top_13">
+                </net.lucode.hackware.magicindicator.MagicIndicator>
+
+                <View
+                    app:layout_scrollFlags="scroll"
+                    android:background="@color/gray_e8e8e8"
+                    android:id="@+id/line"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp">
+                </View>
+
+            </com.google.android.material.appbar.AppBarLayout>
+
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/view_pager"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            </androidx.viewpager.widget.ViewPager>
+
+            <LinearLayout
+                android:orientation="vertical"
+                app:layout_behavior="com.daqsoft.module_mine.widget.MagicIndicatorPinBehavior"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <net.lucode.hackware.magicindicator.MagicIndicator
+                    app:layout_behavior="com.daqsoft.module_mine.widget.MagicIndicatorPinBehavior"
+                    app:viewPaddingTop="@{viewModel.statusBarHeight}"
+                    app:viewHeight="@{viewModel.viewHeight}"
+                    android:id="@+id/indicator_pin"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@color/white_ffffff">
+                </net.lucode.hackware.magicindicator.MagicIndicator>
+
+                <View
+                    android:background="@color/gray_e8e8e8"
+                    android:layout_width="match_parent"
+                    android:layout_height="1dp">
+                </View>
+
+            </LinearLayout>
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.scwang.smart.refresh.layout.SmartRefreshLayout>
+</layout>

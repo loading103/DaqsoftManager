@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:ignore="ResourceName">
+
+    <data>
+
+        <import type="com.daqsoft.module_home.R" />
+
+        <variable
+            name="viewModel"
+            type="com.daqsoft.module_home.viewmodel.itemviewmodel.MessageTitleViewModel" />
+
+    </data>
+
+   <androidx.constraintlayout.widget.ConstraintLayout
+       android:paddingHorizontal="20dp"
+       android:paddingBottom="16dp"
+       android:paddingTop="8dp"
+       android:background="@android:color/transparent"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+
+
+       <TextView
+           android:text="@{viewModel.pairObservable.first}"
+           app:layout_constraintLeft_toLeftOf="parent"
+           app:layout_constraintTop_toTopOf="parent"
+           android:id="@+id/day"
+           android:textStyle="bold"
+           android:textColor="@color/black_333333"
+           android:textSize="20sp"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content">
+       </TextView>
+
+       <TextView
+           app:layout_constraintLeft_toRightOf="@id/day"
+           app:layout_constraintBaseline_toBaselineOf="@id/day"
+           android:textSize="13sp"
+           android:textColor="@color/black_333333"
+           android:id="@+id/month"
+           android:text="@{viewModel.pairObservable.second}"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content">
+       </TextView>
+
+   </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
+
+

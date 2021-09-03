@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="@color/red_fa4848"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+
+        <TextView
+            android:gravity="center"
+            android:drawablePadding="5dp"
+            android:textSize="11sp"
+            android:textColor="@color/white_ffffff"
+            android:text="启用"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintRight_toLeftOf="@+id/disable"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:id="@+id/enable"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:drawableTop="@mipmap/ghck_qy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </TextView>
+
+        <TextView
+            android:gravity="center"
+            android:drawablePadding="5dp"
+            android:textSize="11sp"
+            android:textColor="@color/white_ffffff"
+            android:text="禁用"
+            android:id="@+id/disable"
+            app:layout_constraintLeft_toRightOf="@+id/enable"
+            app:layout_constraintRight_toLeftOf="@+id/modify"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:drawableTop="@mipmap/ghck_jy"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </TextView>
+
+        <TextView
+            android:gravity="center"
+            android:drawablePadding="5dp"
+            android:textSize="11sp"
+            android:textColor="@color/white_ffffff"
+            android:text="修改"
+            app:layout_constraintLeft_toRightOf="@+id/disable"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/delete"
+            android:id="@+id/modify"
+            android:drawableTop="@mipmap/ghck_modify"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </TextView>
+
+        <TextView
+            android:gravity="center"
+            android:drawablePadding="5dp"
+            android:textSize="11sp"
+            android:textColor="@color/white_ffffff"
+            android:text="删除"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toRightOf="@+id/modify"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/delete"
+            android:drawableTop="@mipmap/ghck_delete"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </TextView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

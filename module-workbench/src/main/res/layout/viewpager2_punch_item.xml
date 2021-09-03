@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.daqsoft.module_workbench.R" />
+
+        <variable
+            name="viewModel"
+            type="com.daqsoft.module_workbench.viewmodel.itemviewmodel.PunchCompanyItemViewModel" />
+
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        app:onClickCommand="@{viewModel.itemOnClick}"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/clock_bg"
+            android:src="@mipmap/dk_sjxs"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </ImageView>
+
+        <TextView
+            android:gravity="center"
+            android:text="@{viewModel.timeObservable}"
+            android:textColor="@color/white_ffffff"
+            android:textSize="30sp"
+            android:layout_marginBottom="16dp"
+            app:layout_constraintRight_toRightOf="@+id/clock_bg"
+            app:layout_constraintLeft_toLeftOf="@+id/clock_bg"
+            app:layout_constraintBottom_toBottomOf="@+id/clock_bg"
+            android:id="@+id/time"
+            android:layout_width="127dp"
+            android:layout_height="53dp">
+        </TextView>
+
+        <ImageView
+            android:visibility="gone"
+            app:layout_constraintRight_toRightOf="@+id/time"
+            app:layout_constraintLeft_toLeftOf="@+id/time"
+            app:layout_constraintBottom_toBottomOf="@+id/time"
+            app:layout_constraintTop_toTopOf="@+id/time"
+            android:src="@mipmap/dk_dkcg"
+            android:id="@+id/checked_in"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </ImageView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

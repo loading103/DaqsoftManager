@@ -1,0 +1,127 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+apply plugin: 'dagger.hilt.android.plugin'
+
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+    buildToolsVersion rootProject.ext.android.buildToolsVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
+        multiDexEnabled true
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = JavaVersion.VERSION_1_8.toString()
+    }
+    buildFeatures {
+        dataBinding true
+    }
+
+    lintOptions {
+        ignoreWarnings true
+        checkReleaseBuilds false
+        abortOnError false
+    }
+}
+
+kapt {
+    generateStubs = true
+}
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.core:core-ktx:1.3.2'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+
+    // rxjava
+    api rootProject.ext.dependencies.rxjava
+    api rootProject.ext.dependencies.rxandroid
+
+    // rxlifecycle
+    api(rootProject.ext.dependencies.rxlifecycle) {
+        exclude group: 'com.android.support'
+    }
+    api(rootProject.ext.dependencies["rxlifecycle-components"]) {
+        exclude group: 'com.android.support'
+    }
+
+    // rxbinding
+    api rootProject.ext.dependencies.rxbinding
+
+    // retrofit
+    api rootProject.ext.dependencies.okhttp
+    api rootProject.ext.dependencies.retrofit
+    api rootProject.ext.dependencies["okhttp-logging-interceptor"]
+    api rootProject.ext.dependencies["retrofit-converter-gson"]
+    api rootProject.ext.dependencies["retrofit-adapter-rxjava"]
+
+    // glide
+    api (rootProject.ext.dependencies.glide){
+        exclude group: 'com.android.support'
+    }
+    kapt rootProject.ext.dependencies["glide-compiler"]
+
+    // gson
+    api rootProject.ext.dependencies.gson
+
+    // material-dialogs
+    api(rootProject.ext.dependencies["material-dialogs-core"]) {
+        exclude group: 'com.android.support'
+    }
+
+    // material
+    api rootProject.ext.dependencies.material
+
+    // activity-ktx
+    api rootProject.ext.dependencies["activity-ktx"]
+    api rootProject.ext.dependencies["fragment-ktx"]
+
+
+    // lifecycle
+    api rootProject.ext.dependencies["lifecycle-runtime"]
+    kapt rootProject.ext.dependencies["lifecycle-compiler"]
+    api rootProject.ext.dependencies["lifecycle-extensions"]
+
+    // lifecycle-viewmodel
+    api rootProject.ext.dependencies["lifecycle-viewmodel"]
+
+    // live-event-bus
+    api rootProject.ext.dependencies["live-event-bus"]
+
+    // retrofit-url-manager
+    api rootProject.ext.dependencies["retrofit-url-manager"]
+
+    // timber
+    api rootProject.ext.dependencies["timber"]
+
+    // lottie
+    api rootProject.ext.dependencies.lottie
+
+    // hilt
+    api rootProject.ext.dependencies["hilt-android"]
+    kapt rootProject.ext.dependencies["hilt-android-compiler"]
+    api rootProject.ext.dependencies["hilt-lifecycle-viewmodel"]
+    kapt rootProject.ext.dependencies["hilt-compiler"]
+}

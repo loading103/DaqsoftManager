@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="ResourceName">
+    <data>
+        <variable
+            name="viewModel"
+            type="com.daqsoft.module_workbench.viewmodel.itemviewmodel.TagItemViewModel" />
+    </data>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginRight="8dp">
+        <com.ruffian.library.widget.RTextView
+            android:id="@+id/tv_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingVertical="3dp"
+            android:paddingHorizontal="5dp"
+            app:corner_radius="3dp"
+            android:textColor="@{viewModel.textColorObservable}"
+            app:backgroundNormal="@{viewModel.colorObservable}"
+            android:text="@{viewModel.dataObservable}"
+            android:textSize="10sp" />
+    </RelativeLayout>
+</layout>

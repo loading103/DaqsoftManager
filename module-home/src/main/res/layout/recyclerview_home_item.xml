@@ -1,0 +1,192 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:ignore="ResourceName">
+
+    <data>
+
+        <import type="com.daqsoft.module_home.R" />
+
+        <variable
+            name="viewModel"
+            type="com.daqsoft.module_home.viewmodel.itemviewmodel.HomeItemViewModel" />
+
+    </data>
+
+   <androidx.constraintlayout.widget.ConstraintLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+
+       <androidx.constraintlayout.widget.ConstraintLayout
+           android:background="@android:color/transparent"
+           app:backgroundRes="@{viewModel.newsBriefObservable.top ? R.color.white_f5f5f5 : R.color.transparent}"
+           app:onClickCommand="@{viewModel.itemOnClick}"
+           android:id="@+id/content_cl"
+           app:layout_constraintTop_toTopOf="parent"
+           app:layout_constraintLeft_toLeftOf="parent"
+           app:layout_constraintRight_toRightOf="parent"
+           android:layout_width="0dp"
+           android:layout_height="wrap_content">
+
+           <ImageView
+               android:src="@mipmap/xq_hys"
+               android:id="@+id/icon"
+               android:scaleType="centerCrop"
+               loadResImage="@{viewModel.iconObservable}"
+               android:layout_marginVertical="16dp"
+               android:layout_marginLeft="20dp"
+               app:layout_constraintLeft_toLeftOf="parent"
+               app:layout_constraintTop_toTopOf="parent"
+               app:layout_constraintBottom_toBottomOf="parent"
+               android:layout_width="44dp"
+               android:layout_height="44dp">
+           </ImageView>
+
+           <com.ruffian.library.widget.RTextView
+               android:paddingHorizontal="4dp"
+               app:messageNumber="@{viewModel.numberObservable}"
+               android:gravity="center"
+               android:text="8"
+               android:textSize="9sp"
+               android:textColor="@color/white_ffffff"
+               app:border_width_normal="2dp"
+               app:border_color_normal="@color/white_ffffff"
+               app:corner_radius="15dp"
+               app:background_normal="@color/red_fa4848"
+               android:translationX="-8dp"
+               android:translationY="8dp"
+               app:layout_constraintLeft_toRightOf="@+id/icon"
+               app:layout_constraintBottom_toTopOf="@+id/icon"
+               android:minWidth="13dp"
+               android:layout_width="wrap_content"
+               android:layout_height="13dp">
+           </com.ruffian.library.widget.RTextView>
+
+           <TextView
+               android:ellipsize="end"
+               android:singleLine="true"
+               app:layout_constraintVertical_chainStyle="spread"
+               android:includeFontPadding="false"
+               android:layout_marginHorizontal="11dp"
+               android:text="@{viewModel.newsBriefObservable.title}"
+               app:layout_constraintLeft_toRightOf="@+id/icon"
+               app:layout_constraintBottom_toTopOf="@+id/content"
+               app:layout_constraintTop_toTopOf="@+id/icon"
+               app:layout_constraintRight_toLeftOf="@+id/time"
+               android:textSize="16sp"
+               android:textColor="@color/black_333333"
+               android:id="@+id/title"
+               android:layout_width="0dp"
+               android:layout_height="wrap_content">
+           </TextView>
+
+           <TextView
+               android:includeFontPadding="false"
+               android:ellipsize="end"
+               android:singleLine="true"
+               android:text="@{viewModel.newsBriefObservable.lastInfo}"
+               app:layout_constraintLeft_toLeftOf="@id/title"
+               app:layout_constraintBottom_toBottomOf="@+id/icon"
+               app:layout_constraintTop_toBottomOf="@+id/title"
+               app:layout_constraintRight_toRightOf="@id/time"
+               android:textSize="12sp"
+               android:textColor="@color/gray_999999"
+               android:id="@+id/content"
+               android:layout_width="0dp"
+               android:layout_height="wrap_content">
+           </TextView>
+
+           <TextView
+               android:id="@+id/time"
+               android:text="@{viewModel.timeObservable}"
+               android:textColor="@color/gray_999999"
+               android:textSize="10sp"
+               android:layout_marginRight="20dp"
+               app:layout_constraintRight_toRightOf="parent"
+               app:layout_constraintBottom_toBottomOf="@id/title"
+               app:layout_constraintTop_toTopOf="@id/title"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content">
+           </TextView>
+
+           <View
+               app:layout_constraintRight_toRightOf="parent"
+               app:layout_constraintLeft_toLeftOf="@id/title"
+               app:layout_constraintBottom_toBottomOf="parent"
+               android:background="@color/gray_e8e8e8"
+               android:layout_width="0dp"
+               android:layout_height="1dp">
+           </View>
+
+       </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+       <androidx.constraintlayout.widget.ConstraintLayout
+           android:id="@+id/swipe_cl"
+           app:layout_constraintLeft_toRightOf="@id/content_cl"
+           app:layout_constraintBottom_toBottomOf="@id/content_cl"
+           app:layout_constraintTop_toTopOf="@+id/content_cl"
+           android:layout_width="wrap_content"
+           android:layout_height="0dp">
+
+           <TextView
+               app:onClickCommand="@{viewModel.topOnClick}"
+               android:textStyle="bold"
+               android:textColor="@color/white_ffffff"
+               android:textSize="14sp"
+               android:gravity="center"
+               android:background="@color/gray_bbbbbb"
+               android:text="@{viewModel.newsBriefObservable.top ? @string/cancel_top : @string/top}"
+               android:paddingHorizontal="16dp"
+               app:layout_constraintLeft_toLeftOf="parent"
+               app:layout_constraintBottom_toBottomOf="parent"
+               app:layout_constraintTop_toTopOf="parent"
+               android:id="@+id/top"
+               android:layout_width="wrap_content"
+               android:layout_height="0dp">
+           </TextView>
+
+           <TextView
+               android:visibility="gone"
+               app:onClickCommand="@{viewModel.readOnClick}"
+               android:textStyle="bold"
+               android:textColor="@color/white_ffffff"
+               android:textSize="14sp"
+               android:gravity="center"
+               android:background="@color/orange_ff9e05"
+               android:text="@{viewModel.readFlagObservable ? @string/mark_unread : @string/mark_read}"
+               android:paddingHorizontal="16dp"
+               app:layout_constraintLeft_toRightOf="@id/top"
+               app:layout_constraintBottom_toBottomOf="parent"
+               app:layout_constraintTop_toTopOf="parent"
+               android:id="@+id/mark_read"
+               android:layout_width="wrap_content"
+               android:layout_height="0dp">
+           </TextView>
+
+           <TextView
+               app:onClickCommand="@{viewModel.removeOnClick}"
+               android:textStyle="bold"
+               android:textColor="@color/white_ffffff"
+               android:textSize="14sp"
+               android:gravity="center"
+               android:background="@color/red_fa4848"
+               android:text="@string/remove"
+               android:paddingHorizontal="16dp"
+               app:layout_constraintLeft_toRightOf="@id/mark_read"
+               app:layout_constraintBottom_toBottomOf="parent"
+               app:layout_constraintTop_toTopOf="parent"
+               android:id="@+id/remove"
+               android:layout_width="wrap_content"
+               android:layout_height="0dp">
+           </TextView>
+
+       </androidx.constraintlayout.widget.ConstraintLayout>
+
+   </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
+
+

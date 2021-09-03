@@ -1,0 +1,52 @@
+apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+
+android {
+    compileSdkVersion rootProject.ext.android.compileSdkVersion
+
+    defaultConfig {
+        minSdkVersion rootProject.ext.android.minSdkVersion
+        targetSdkVersion rootProject.ext.android.targetSdkVersion
+        versionCode rootProject.ext.android.versionCode
+        versionName rootProject.ext.android.versionName
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    lintOptions {
+        abortOnError false
+    }
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    implementation "androidx.appcompat:appcompat:${rootProject.ext.android.version_appcompat}"
+    implementation "androidx.recyclerview:recyclerview:${rootProject.ext.android.version_recyclerview}"
+    implementation "androidx.concurrent:concurrent-futures:${rootProject.ext.android.futures_version}"
+    implementation "androidx.annotation:annotation-experimental:${rootProject.ext.android.experimental_version}"
+    implementation "com.squareup.okio:okio:${rootProject.ext.android.okio_version}"
+    implementation "androidx.exifinterface:exifinterface:${rootProject.ext.android.androidx_exifinterface_version}"
+    implementation "androidx.camera:camera-lifecycle:${rootProject.ext.android.camerax_version}"
+    implementation "androidx.localbroadcastmanager:localbroadcastmanager:${rootProject.ext.android.localbroadcastmanager}"
+    implementation "androidx.camera:camera-view:${rootProject.ext.android.camerax_view}"
+
+
+    // lifecycle
+    api rootProject.ext.dependencies["lifecycle-runtime"]
+    kapt rootProject.ext.dependencies["lifecycle-compiler"]
+    api rootProject.ext.dependencies["lifecycle-extensions"]
+
+    api project(':ucrop')
+}

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:ignore="ResourceName">
+
+    <data>
+
+        <import type="com.daqsoft.module_mine.R" />
+
+        <variable
+            name="viewModel"
+            type="com.daqsoft.module_mine.viewmodel.itemviewmodel.DepartmentColleaguesItemViewModel" />
+
+    </data>
+
+    <com.ruffian.library.widget.RConstraintLayout
+        app:background_normal="@color/white_ffffff"
+        app:corner_radius="36dp"
+        android:layout_width="36dp"
+        android:layout_height="36dp">
+
+        <ImageView
+            android:scaleType="centerCrop"
+            app:onClickCommand="@{viewModel.itemOnClick}"
+            android:src="@mipmap/mine_bmkq_tx_default"
+            app:url="@{viewModel.employeeInfoObservable.employeeAvatar}"
+            app:circle="@{true}"
+            app:placeholderRes="@{R.mipmap.mine_bmkq_tx_default}"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:id="@+id/avatar"
+            android:layout_width="0dp"
+            android:layout_height="0dp">
+        </ImageView>
+
+    </com.ruffian.library.widget.RConstraintLayout>
+
+
+</layout>
+
+

@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+
+        <import type="com.daqsoft.module_workbench.R" />
+
+        <variable
+            name="viewModel"
+            type="com.daqsoft.module_workbench.viewmodel.itemviewmodel.WorkBenchItemLabelViewModel" />
+
+    </data>
+
+    <LinearLayout
+        app:onClickCommand="@{viewModel.itemOnClick}"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:src="@color/gray_ececec"
+            placeholderRes="@{viewModel.placeholderRes}"
+            url="@{viewModel.menuInfoObservable.icon}"
+            android:id="@+id/icon"
+            android:layout_width="40dp"
+            android:layout_height="40dp">
+        </ImageView>
+
+
+        <TextView
+            android:includeFontPadding="false"
+            android:gravity="center_horizontal"
+            android:ellipsize="end"
+            android:maxLines="2"
+            android:maxEms="7"
+            android:text="@{viewModel.menuInfoObservable.appMenuName}"
+            android:textColor="@color/black_333333"
+            android:textSize="13sp"
+            android:layout_marginTop="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </TextView>
+
+    </LinearLayout>
+</layout>

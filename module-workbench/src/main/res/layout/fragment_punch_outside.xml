@@ -1,0 +1,133 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.daqsoft.module_workbench.viewmodel.PunchOutsideViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="@color/white_ffffff"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.amap.api.maps2d.MapView
+            android:id="@+id/map"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="0dp"
+            android:layout_height="280dp">
+        </com.amap.api.maps2d.MapView>
+
+        <ImageView
+            android:background="@drawable/radial_gradient"
+            android:id="@+id/mask"
+            app:layout_constraintBottom_toBottomOf="@id/map"
+            app:layout_constraintRight_toRightOf="@id/map"
+            app:layout_constraintLeft_toLeftOf="@id/map"
+            app:layout_constraintTop_toTopOf="@id/map"
+            android:layout_width="0dp"
+            android:layout_height="0dp">
+        </ImageView>
+
+
+        <TextView
+            android:text="@{viewModel.address}"
+            android:id="@+id/address"
+            android:textColor="@color/red_fa4848"
+            android:textSize="12sp"
+            app:layout_constraintVertical_bias="0.6"
+            app:layout_constraintRight_toRightOf="@id/map"
+            app:layout_constraintLeft_toLeftOf="@id/map"
+            app:layout_constraintBottom_toBottomOf="@id/map"
+            app:layout_constraintTop_toTopOf="@id/map"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </TextView>
+
+        <Space
+            android:id="@+id/space"
+            android:layout_marginBottom="43dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/map"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </Space>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/clock_cl"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/space"
+            app:onClickCommand="@{viewModel.itemOnClick}"
+            android:layout_width="169dp"
+            android:layout_height="115dp">
+
+            <ImageView
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:id="@+id/clock_bg"
+                android:src="@mipmap/dk_sjxs"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            </ImageView>
+
+            <TextView
+                android:gravity="center"
+                android:text="@{viewModel.timeObservable}"
+                android:textColor="@color/white_ffffff"
+                android:textSize="30sp"
+                android:layout_marginBottom="16dp"
+                app:layout_constraintRight_toRightOf="@+id/clock_bg"
+                app:layout_constraintLeft_toLeftOf="@+id/clock_bg"
+                app:layout_constraintBottom_toBottomOf="@+id/clock_bg"
+                android:id="@+id/time"
+                android:layout_width="127dp"
+                android:layout_height="53dp">
+            </TextView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:id="@+id/clock_in_tips"
+            android:text="@string/module_workbench_click_to_take_photo_and_punch_in"
+            android:textColor="@color/gray_666666"
+            android:textSize="13sp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/clock_cl"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </TextView>
+
+
+        <TextView
+            app:layout_constraintVertical_chainStyle="packed"
+            android:layout_marginBottom="5dp"
+            android:id="@+id/first"
+            android:text="@{viewModel.welcomeObservable.careInfo}"
+            android:textColor="@color/gray_666666"
+            android:textSize="13sp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/clock_in_tips"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </TextView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

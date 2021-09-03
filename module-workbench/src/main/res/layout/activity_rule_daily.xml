@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="MissingDefaultResource,ResourceName">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.daqsoft.module_workbench.viewmodel.DailyRuleViewModel" />
+
+        <import type="android.view.View"/>
+        <import type="android.text.TextUtils"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+        <include
+            app:toolbarViewModel="@{viewModel.toolbarViewModel}"
+            android:id="@+id/include"
+            layout="@layout/layout_toolbar">
+        </include>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:background="@color/white"
+            android:paddingBottom="100dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toTopOf="@+id/tv_send"
+            app:layout_constraintTop_toBottomOf="@+id/include"
+            app:layout_constraintLeft_toLeftOf="parent">
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <RelativeLayout
+                    android:id="@+id/ll_name"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/white_ffffff"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:paddingLeft="20dp"
+                    android:paddingBottom="20dp"
+                    android:gravity="center_vertical">
+                    <ImageView
+                        android:id="@+id/iv_icon"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="20dp"
+                        android:layout_centerHorizontal="true"
+                        android:layout_marginTop="40dp"
+                        android:src="@mipmap/zdsc_gz_icon"/>
+
+                    <TextView
+                        android:id="@+id/tv_name"
+                        android:layout_width="match_parent"
+                        android:layout_height="54dp"
+                        android:paddingVertical="5dp"
+                        android:textColor="#333"
+                        android:text="@{viewModel.nameSpannable}"
+                        android:layout_gravity="center"
+                        android:textSize="15dp"
+                        android:textStyle="bold"
+                        tools:text="当前日报为【自动生成模式】"
+                        android:layout_marginTop="21dp"
+                        android:layout_below="@+id/iv_icon"
+                        android:gravity="center"/>
+
+                    <View
+                        android:id="@+id/line1"
+                        android:layout_below="@+id/tv_name"
+                        android:background="@color/white_e8e8e8"
+                        android:layout_width="match_parent"
+                        android:layout_marginTop="32dp"
+                        android:layout_height="1dp"/>
+
+                    <TextView
+                        android:id="@+id/tv_title1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="#333"
+                        android:text="生成规则："
+                        android:layout_gravity="center"
+                        android:textSize="17sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="32dp"
+                        android:layout_below="@+id/line1" />
+                    <TextView
+                        android:id="@+id/tv_title2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="#333"
+                        android:text="@{viewModel.ruleBean.setupObj.getTitle1()}"
+                        android:visibility="@{TextUtils.isEmpty(viewModel.ruleBean.setupObj.getTitle1())?View.GONE:View.VISIBLE}"
+                        android:layout_gravity="center"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="31dp"
+                        android:layout_below="@+id/tv_title1" />
+
+                    <TextView
+                        android:id="@+id/tv_content1"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="#333"
+                        android:text="@{viewModel.ruleBean.setupObj.getContent1()}"
+                        android:visibility="@{TextUtils.isEmpty(viewModel.ruleBean.setupObj.getContent1())?View.GONE:View.VISIBLE}"
+                        android:layout_gravity="center"
+                        android:textSize="14sp"
+                        android:layout_marginTop="16dp"
+                        android:layout_below="@+id/tv_title2" />
+
+                    <TextView
+                        android:id="@+id/tv_content2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="#333"
+                        android:text="@{viewModel.ruleBean.setupObj.getContent2()}"
+                        android:visibility="@{TextUtils.isEmpty(viewModel.ruleBean.setupObj.getContent2())?View.GONE:View.VISIBLE}"
+                        android:layout_gravity="center"
+                        android:textSize="14sp"
+                        android:layout_marginTop="16dp"
+                        android:layout_below="@+id/tv_content1" />
+
+
+                    <TextView
+                        android:id="@+id/tv_content4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="#333"
+                        android:text="@{viewModel.ruleBean.setupObj.getContent3()}"
+                        android:visibility="@{TextUtils.isEmpty(viewModel.ruleBean.setupObj.getContent3())?View.GONE:View.VISIBLE}"
+                        android:layout_gravity="center"
+                        android:textSize="14sp"
+                        android:layout_marginTop="16dp"
+                        android:layout_below="@+id/tv_content2" />
+
+                    <TextView
+                        android:id="@+id/tv_title3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="#333"
+                        android:text="@{viewModel.ruleBean.setupObj.getTitle2()}"
+                        android:visibility="@{TextUtils.isEmpty(viewModel.ruleBean.setupObj.getTitle2())?View.GONE:View.VISIBLE}"
+                        android:layout_gravity="center"
+                        android:textSize="14sp"
+                        android:textStyle="bold"
+                        android:layout_marginTop="31dp"
+                        android:layout_below="@+id/tv_content4" />
+                    <TextView
+                        android:id="@+id/tv_content3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="#333"
+                        android:text="@{viewModel.ruleBean.setupObj.getContent4()}"
+                        android:visibility="@{TextUtils.isEmpty(viewModel.ruleBean.setupObj.getContent4())?View.GONE:View.VISIBLE}"
+                        android:layout_gravity="center"
+                        android:textSize="14sp"
+                        android:layout_marginTop="16dp"
+                        android:layout_below="@+id/tv_title3" />
+                    <TextView
+                        android:id="@+id/tv_content5"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="#333"
+                        android:text="@{viewModel.ruleBean.setupObj.getContent5()}"
+                        android:visibility="@{TextUtils.isEmpty(viewModel.ruleBean.setupObj.getContent5())?View.GONE:View.VISIBLE}"
+                        android:layout_gravity="center"
+                        android:textSize="14sp"
+                        android:layout_marginTop="16dp"
+                        android:layout_below="@+id/tv_content3" />
+
+                    <TextView
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/red_fa4848"
+                        android:text="自动生成模式日报内容不支持手动修改"
+                        android:layout_gravity="center"
+                        android:textSize="14sp"
+                        android:layout_marginTop="33dp"
+                        android:layout_below="@+id/tv_content5" />
+                </RelativeLayout>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.core.widget.NestedScrollView>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

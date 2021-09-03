@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_graph"
+    app:startDestination="@id/module_workbench_deptdocfragment">
+
+    <action
+        app:launchSingleTop="true"
+        app:popUpToInclusive="true"
+        app:popUpTo="@id/nav_graph"
+        app:destination="@id/module_workbench_deptdocfragment"
+        android:id="@+id/nav_graph_action">
+    </action>
+
+
+    <fragment
+        android:id="@+id/module_workbench_deptdocfragment"
+        android:name="com.daqsoft.module_workbench.fragment.DeptDocFragment"
+        android:label="DeptDocFragment" >
+        <action
+            android:id="@+id/module_workbench_action_module_workbench_deptdocfragment_self"
+            app:destination="@id/module_workbench_deptdocfragment" />
+    </fragment>
+</navigation>

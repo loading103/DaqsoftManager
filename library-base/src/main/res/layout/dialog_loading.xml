@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.ruffian.library.widget.RLinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_gravity="center"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:minHeight="90dp"
+    android:minWidth="90dp"
+    android:gravity="center"
+    android:orientation="vertical"
+    app:corner_radius="10dp"
+    app:background_normal="@color/black_333333_alpha70"
+    android:padding="15dp">
+
+        <com.daqsoft.library_base.widget.QMUILoadingView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </com.daqsoft.library_base.widget.QMUILoadingView>
+
+        <TextView
+            android:visibility="gone"
+            android:id="@+id/tv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="@string/loading"
+            android:textColor="@android:color/white" >
+        </TextView>
+
+</com.ruffian.library.widget.RLinearLayout>

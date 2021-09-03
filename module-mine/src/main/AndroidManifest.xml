@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.daqsoft.module_mine">
+
+    <application>
+        <activity android:name=".activity.LoginActivity" android:theme="@style/LoginTheme"/>
+        <activity android:name=".activity.PersonalInfoActivity" />
+        <activity android:name=".activity.BirthdayActivity" />
+        <activity android:name=".activity.AddressActivity" />
+        <activity android:name=".activity.InterestActivity" />
+        <activity android:name=".activity.PasswordActivity" />
+    </application>
+
+</manifest>

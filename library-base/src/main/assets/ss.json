@@ -1,0 +1,234 @@
+{
+  "data": [
+    {
+      "fileCnt": 0,
+      "baseParentId": null,
+      "id": 1756,
+      "projectId": 505,
+      "baseName": "第一级文件1",
+      "baseType": 0
+    },
+    {
+      "fileCnt": 0,
+      "baseParentId": null,
+      "id": 1756,
+      "projectId": 505,
+      "baseName": "第一级文件2",
+      "baseType": 0,
+      "childs":  [
+        {
+          "fileCnt": 0,
+          "baseParentId": null,
+          "id": 1756,
+          "projectId": 505,
+          "baseName": "第二级文件1",
+          "baseType": 0
+        },
+        {
+          "fileCnt": 0,
+          "baseParentId": null,
+          "id": 1756,
+          "projectId": 505,
+          "baseName": "第二级文件2",
+          "baseType": 0
+        },
+        {
+          "fileCnt": 0,
+          "baseParentId": null,
+          "id": 1756,
+          "projectId": 505,
+          "baseName": "第二级文件3",
+          "baseType": 0,
+          "childs":  [
+            {
+              "fileCnt": 0,
+              "baseParentId": null,
+              "id": 1756,
+              "projectId": 505,
+              "baseName": "第三级文件1",
+              "baseType": 0
+            },
+            {
+              "fileCnt": 0,
+              "baseParentId": null,
+              "id": 1756,
+              "projectId": 505,
+              "baseName": "第三级文件2",
+              "baseType": 0
+            },
+            {
+              "fileCnt": 0,
+              "baseParentId": null,
+              "id": 1756,
+              "projectId": 505,
+              "baseName": "第三级文件4",
+              "baseType": 0,
+              "childs":  [
+                {
+                  "fileCnt": 0,
+                  "baseParentId": null,
+                  "id": 1756,
+                  "projectId": 505,
+                  "baseName": "第四级文件1",
+                  "baseType": 0
+                },
+                {
+                  "fileCnt": 0,
+                  "baseParentId": null,
+                  "id": 1756,
+                  "projectId": 505,
+                  "baseName": "第四级文件2",
+                  "baseType": 0
+                },
+                {
+                  "fileCnt": 0,
+                  "baseParentId": null,
+                  "id": 1756,
+                  "projectId": 505,
+                  "baseName": "第四级文件3",
+                  "baseType": 0,
+                  "childs":  [
+                    {
+                      "fileCnt": 0,
+                      "baseParentId": null,
+                      "id": 1756,
+                      "projectId": 505,
+                      "baseName": "第五级文件1",
+                      "baseType": 0
+                    },
+                    {
+                      "fileCnt": 0,
+                      "baseParentId": null,
+                      "id": 1756,
+                      "projectId": 505,
+                      "baseName": "第五级文件2",
+                      "baseType": 0
+                    },
+                    {
+                      "fileCnt": 0,
+                      "baseParentId": null,
+                      "id": 1756,
+                      "projectId": 505,
+                      "baseName": "第五级文件3",
+                      "baseType": 0,
+                      "childs":  [
+                        {
+                          "fileCnt": 0,
+                          "baseParentId": null,
+                          "id": 1756,
+                          "projectId": 505,
+                          "baseName": "第六级文件1",
+                          "baseType": 0
+                        },
+                        {
+                          "fileCnt": 0,
+                          "baseParentId": null,
+                          "id": 1756,
+                          "projectId": 505,
+                          "baseName": "第六级文件2",
+                          "baseType": 0
+                        },
+                        {
+                          "fileCnt": 0,
+                          "baseParentId": null,
+                          "id": 1756,
+                          "projectId": 505,
+                          "baseName": "第六级文件3",
+                          "baseType": 0
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fileCnt": 0,
+      "baseParentId": null,
+      "id": 1756,
+      "projectId": 505,
+      "baseName": "第一级文件3",
+      "baseType": 0,
+      "childs":  [
+        {
+          "fileCnt": 0,
+          "baseParentId": null,
+          "id": 1756,
+          "projectId": 505,
+          "baseName": "第2级文件1",
+          "baseType": 0
+        },
+        {
+          "fileCnt": 0,
+          "baseParentId": null,
+          "id": 1756,
+          "projectId": 505,
+          "baseName": "第2级文件2",
+          "baseType": 0
+        },
+        {
+          "fileCnt": 0,
+          "baseParentId": null,
+          "id": 1756,
+          "projectId": 505,
+          "baseName": "第2级文件3",
+          "baseType": 0,
+          "childs":  [
+            {
+              "fileCnt": 0,
+              "baseParentId": null,
+              "id": 1756,
+              "projectId": 505,
+              "baseName": "第3级文件1",
+              "baseType": 0
+            },
+            {
+              "fileCnt": 0,
+              "baseParentId": null,
+              "id": 1756,
+              "projectId": 505,
+              "baseName": "第3级文件2",
+              "baseType": 0
+            },
+            {
+              "fileCnt": 0,
+              "baseParentId": null,
+              "id": 1756,
+              "projectId": 505,
+              "baseName": "第3级文件3",
+              "baseType": 0
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "fileCnt": 0,
+      "baseParentId": null,
+      "id": 1756,
+      "projectId": 505,
+      "baseName": "第一级文件4",
+      "baseType": 0
+    },
+    {
+      "fileCnt": 0,
+      "baseParentId": null,
+      "id": 1756,
+      "projectId": 505,
+      "baseName": "第一级文件5",
+      "baseType": 0
+    },
+    {
+      "fileCnt": 0,
+      "baseParentId": null,
+      "id": 1756,
+      "projectId": 505,
+      "baseName": "第一级文件6",
+      "baseType": 0
+    }
+  ]
+}

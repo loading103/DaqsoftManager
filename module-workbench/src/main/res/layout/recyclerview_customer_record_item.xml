@@ -1,0 +1,292 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:ignore="ResourceName">
+
+    <data>
+
+        <import type="com.daqsoft.module_workbench.R" />
+
+        <variable
+            name="viewModel"
+            type="com.daqsoft.module_workbench.viewmodel.itemviewmodel.CustomerRecordItemViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:paddingTop="20dp"
+        android:paddingHorizontal="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <com.ruffian.library.widget.RImageView
+            app:is_circle="true"
+            url="@{viewModel.projectDynamic.headImg}"
+            placeholderRes="@{R.mipmap.txl_details_tx_default_1}"
+            android:id="@+id/avatar"
+            android:src="@mipmap/txl_details_tx_default_1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="32dp"
+            android:layout_height="32dp">
+        </com.ruffian.library.widget.RImageView>
+
+        <TextView
+            android:text="@{viewModel.projectDynamicObservable.userName}"
+            android:layout_marginTop="2dp"
+            android:includeFontPadding="false"
+            tools:text="杨三"
+            android:textStyle="bold"
+            android:textSize="13sp"
+            android:textColor="@color/black_333333"
+            android:layout_marginLeft="8dp"
+            app:layout_constraintLeft_toRightOf="@+id/avatar"
+            app:layout_constraintTop_toTopOf="@+id/avatar"
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </TextView>
+
+        <TextView
+            android:includeFontPadding="false"
+            android:layout_marginLeft="10dp"
+            tools:text="项目经理"
+            android:text="@{viewModel.projectDynamicObservable.postName}"
+            android:textColor="@color/black_333333"
+            android:textSize="13sp"
+            app:layout_constraintLeft_toRightOf="@+id/name"
+            app:layout_constraintBottom_toBottomOf="@+id/name"
+            app:layout_constraintTop_toTopOf="@+id/name"
+            android:id="@+id/position"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </TextView>
+
+        <com.ruffian.library.widget.RTextView
+            android:id="@+id/label_itr"
+            android:paddingVertical="3dp"
+            android:paddingHorizontal="4dp"
+            android:textSize="10sp"
+            android:text="ITR"
+            android:textColor="@color/white_ffffff"
+            app:background_normal="@color/red_fa4848"
+            app:corner_radius="3dp"
+            android:layout_marginLeft="6dp"
+            app:layout_constraintLeft_toRightOf="@+id/position"
+            app:layout_constraintBottom_toBottomOf="@+id/name"
+            app:layout_constraintTop_toTopOf="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </com.ruffian.library.widget.RTextView>
+
+        <com.ruffian.library.widget.RTextView
+            android:id="@+id/daily"
+            android:paddingHorizontal="3dp"
+            android:textSize="10sp"
+            android:text="日报"
+            android:visibility="gone"
+            android:textColor="@color/white_ffffff"
+            app:background_normal="@color/color_ff9e05"
+            app:corner_radius="3dp"
+            android:layout_marginLeft="6dp"
+            app:layout_constraintLeft_toRightOf="@+id/position"
+            app:layout_constraintBottom_toBottomOf="@+id/name"
+            app:layout_constraintTop_toTopOf="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </com.ruffian.library.widget.RTextView>
+
+
+
+
+        <TextView
+            android:text="@{viewModel.projectDynamicObservable.coverNoteTimestamp()}"
+            android:id="@+id/time"
+            android:includeFontPadding="false"
+            android:textColor="@color/gray_999999"
+            android:textSize="10sp"
+            tools:text="2020-02-22 10:10:25 （3小时前）"
+            app:layout_constraintLeft_toLeftOf="@+id/name"
+            app:layout_constraintBottom_toBottomOf="@+id/avatar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </TextView>
+
+        <com.ruffian.library.widget.RTextView
+            android:id="@+id/close_itr"
+            app:background_normal="@color/red_fa4848_alpha80"
+            android:textSize="11sp"
+            android:textColor="@color/red_fa4848"
+            android:text="关闭ITR"
+            app:border_width_normal="1dp"
+            app:border_color_normal="@color/red_fa4848_alpha80"
+            app:corner_radius="10dp"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="5dp"
+            android:includeFontPadding="false"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="@+id/avatar"
+            app:layout_constraintTop_toTopOf="@+id/avatar"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </com.ruffian.library.widget.RTextView>
+
+        <TextView
+            android:visibility="gone"
+            android:textColor="@color/red_fa4848"
+            android:textSize="14sp"
+            android:id="@+id/label_txt"
+            android:layout_marginTop="16dp"
+            app:layout_constraintLeft_toLeftOf="@+id/time"
+            app:layout_constraintTop_toBottomOf="@+id/time"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+        </TextView>
+
+        <TextView
+            android:textIsSelectable="true"
+            android:layout_marginTop="6dp"
+            android:textSize="14sp"
+            android:textColor="@color/black_333333"
+            android:scrollbars="none"
+            android:overScrollMode="never"
+            app:layout_goneMarginTop="16dp"
+            app:layout_constraintLeft_toLeftOf="@+id/time"
+            app:layout_constraintTop_toBottomOf="@+id/label_txt"
+            app:layout_constraintRight_toRightOf="parent"
+            android:id="@+id/content"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+        </TextView>
+
+        <TextView
+            android:text='@{"ITR关闭时间：" + viewModel.projectDynamicObservable.itrCloseTime}'
+            android:id="@+id/close_itr_time"
+            android:layout_marginTop="10dp"
+            tools:text="ITR关闭时间：2020-02-26 15:43:27"
+            android:textSize="12sp"
+            android:textColor="@color/gray_999999"
+            app:layout_constraintLeft_toLeftOf="@+id/content"
+            app:layout_constraintTop_toBottomOf="@+id/content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </TextView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:visibility="gone"
+            android:id="@+id/annex_cl"
+            android:layout_marginTop="13dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="@+id/time"
+            app:layout_constraintTop_toBottomOf="@+id/close_itr_time"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+
+            <androidx.cardview.widget.CardView
+                app:cardElevation="0dp"
+                android:visibility="gone"
+                android:id="@+id/replyCardView"
+                android:layout_marginTop="16dp"
+                app:cardBackgroundColor="@color/white_f5f5f5"
+                app:cardCornerRadius="5dp"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:background="@color/transparent"
+                    android:id="@+id/replyRecyclerView"
+                    android:nestedScrollingEnabled="false"
+                    android:overScrollMode="never"
+                    android:scrollbars="none"
+                    app:itemAnimator="@{null}"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                </androidx.recyclerview.widget.RecyclerView>
+
+            </androidx.cardview.widget.CardView>
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <TextView
+            android:drawablePadding="6dp"
+            android:drawableLeft="@mipmap/xmdt_icon_reply"
+            android:text="回复"
+            android:textColor="@color/color_666666"
+            android:textSize="12sp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/annex_cl"
+            app:layout_constraintRight_toRightOf="parent"
+            android:id="@+id/reply"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </TextView>
+
+<!--        <TextView-->
+<!--            android:drawablePadding="6dp"-->
+<!--            android:drawableLeft="@mipmap/xmdt_icon_creat"-->
+<!--            android:text="建任务"-->
+<!--            android:textColor="@color/color_666666"-->
+<!--            android:textSize="12sp"-->
+<!--            android:layout_marginTop="16dp"-->
+<!--            app:layout_constraintBaseline_toBaselineOf="@+id/reply"-->
+<!--            app:layout_constraintRight_toLeftOf="@+id/reply"-->
+<!--            android:layout_marginRight="10dp"-->
+<!--            android:id="@+id/build_task"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content">-->
+<!--        </TextView>-->
+
+<!--        <TextView-->
+<!--            android:drawablePadding="6dp"-->
+<!--            android:drawableLeft="@mipmap/xmdt_icon_score"-->
+<!--            android:text="评分"-->
+<!--            android:textColor="@color/color_666666"-->
+<!--            android:textSize="12sp"-->
+<!--            android:layout_marginTop="16dp"-->
+<!--            app:layout_constraintBaseline_toBaselineOf="@+id/reply"-->
+<!--            app:layout_constraintRight_toLeftOf="@+id/build_task"-->
+<!--            android:layout_marginRight="10dp"-->
+<!--            android:id="@+id/score"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content">-->
+<!--        </TextView>-->
+
+<!--        <TextView-->
+<!--            android:drawablePadding="6dp"-->
+<!--            android:drawableLeft="@mipmap/xmdt_icon_guidang"-->
+<!--            android:text="归档"-->
+<!--            android:textColor="@color/color_666666"-->
+<!--            android:textSize="12sp"-->
+<!--            android:layout_marginTop="16dp"-->
+<!--            app:layout_constraintBaseline_toBaselineOf="@+id/reply"-->
+<!--            app:layout_constraintRight_toLeftOf="@+id/score"-->
+<!--            android:layout_marginRight="10dp"-->
+<!--            android:id="@+id/pigeonhole"-->
+<!--            android:layout_width="wrap_content"-->
+<!--            android:layout_height="wrap_content">-->
+<!--        </TextView>-->
+
+        <View
+            android:background="@color/gray_e8e8e8"
+            android:layout_marginTop="20dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/reply"
+            android:layout_width="0dp"
+            android:layout_height="1dp">
+        </View>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
+
+

@@ -1,0 +1,260 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:id="@+id/ll_root"
+    android:layout_height="wrap_content"
+    android:visibility="gone"
+    android:orientation="vertical"
+    tools:ignore="ResourceName">
+
+    <TextView
+        android:includeFontPadding="true"
+        android:textSize="18sp"
+        android:textColor="@color/white_ffffff"
+        android:textStyle="bold"
+        android:text=""
+        android:id="@+id/tv_title"
+        android:layout_width="match_parent"
+        android:gravity="center"
+        android:layout_height="wrap_content">
+    </TextView>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="15dp"
+        android:layout_marginLeft="5dp"
+        android:layout_marginRight="5dp"
+        android:orientation="horizontal"
+        >
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <ImageView
+                android:id="@+id/iv_one"
+                android:layout_centerHorizontal="true"
+                android:layout_width="15dp"
+                android:layout_height="15dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_toRightOf="@+id/iv_one"
+                android:layout_marginTop="7.5dp"
+                android:background="@color/white_ffffff"/>
+
+            <TextView
+                android:layout_below="@+id/iv_one"
+                android:id="@+id/tv_one"
+                android:layout_width="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white_ffffff"
+                android:layout_marginTop="5dp"
+                android:textSize="12sp"
+                android:text="预立项"/>
+            <TextView
+                android:layout_below="@+id/tv_one"
+                android:id="@+id/tv_one_time"
+                android:layout_centerHorizontal="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white_ffffff"
+                android:layout_marginTop="5dp"
+                android:textSize="10sp"
+                android:text="2020-10-26"/>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <ImageView
+                android:id="@+id/iv_two"
+                android:layout_centerHorizontal="true"
+                android:layout_width="15dp"
+                android:layout_height="15dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_toRightOf="@+id/iv_two"
+                android:layout_marginTop="7.5dp"
+                android:background="@color/white_ffffff"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_toLeftOf="@+id/iv_two"
+                android:layout_marginTop="7.5dp"
+                android:background="@color/white_ffffff"/>
+
+            <TextView
+                android:layout_below="@+id/iv_two"
+                android:id="@+id/tv_two"
+                android:layout_width="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white_ffffff"
+                android:layout_marginTop="5dp"
+                android:textSize="12sp"
+                android:text="合同备案"/>
+            <TextView
+                android:layout_below="@+id/tv_two"
+                android:id="@+id/tv_two_time"
+                android:layout_centerHorizontal="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white_ffffff"
+                android:layout_marginTop="5dp"
+                android:textSize="10sp"
+                android:text="2020-10-26"/>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/ll_jd"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <ImageView
+                android:id="@+id/iv_three"
+                android:layout_centerHorizontal="true"
+                android:layout_width="15dp"
+                android:layout_height="15dp" />
+
+            <View
+                android:id="@+id/lin3"
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_toRightOf="@+id/iv_three"
+                android:layout_marginTop="7.5dp"
+                android:background="@color/white_ffffff"/>
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_toLeftOf="@+id/iv_three"
+                android:layout_marginTop="7.5dp"
+                android:background="@color/white_ffffff"/>
+
+            <TextView
+                android:layout_below="@+id/iv_three"
+                android:id="@+id/tv_three"
+                android:layout_width="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white_ffffff"
+                android:layout_marginTop="5dp"
+                android:textSize="12sp"
+                android:text="交底"/>
+            <TextView
+                android:layout_below="@+id/tv_three"
+                android:id="@+id/tv_three_time"
+                android:layout_centerHorizontal="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white_ffffff"
+                android:layout_marginTop="5dp"
+                android:textSize="10sp"
+                android:text="2020-10-26"/>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/ll_first"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <ImageView
+                android:id="@+id/iv_four"
+                android:layout_centerHorizontal="true"
+                android:layout_width="15dp"
+                android:layout_height="15dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_toRightOf="@+id/iv_four"
+                android:layout_marginTop="7.5dp"
+                android:background="@color/white_ffffff"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_toLeftOf="@+id/iv_four"
+                android:layout_marginTop="7.5dp"
+                android:background="@color/white_ffffff"/>
+
+            <TextView
+                android:layout_below="@+id/iv_four"
+                android:id="@+id/tv_four"
+                android:layout_width="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white_ffffff"
+                android:layout_marginTop="5dp"
+                android:textSize="12sp"
+                android:text="初验"/>
+            <TextView
+                android:layout_below="@+id/tv_four"
+                android:id="@+id/tv_four_time"
+                android:layout_centerHorizontal="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white_ffffff"
+                android:layout_marginTop="5dp"
+                android:textSize="10sp"
+                android:text="2020-10-26"/>
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/ll_last"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <ImageView
+                android:id="@+id/iv_five"
+                android:layout_centerHorizontal="true"
+                android:layout_width="15dp"
+                android:layout_height="15dp" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="0.5dp"
+                android:layout_toLeftOf="@+id/iv_five"
+                android:layout_marginTop="7.5dp"
+                android:background="@color/white_ffffff"/>
+
+            <TextView
+                android:layout_below="@+id/iv_five"
+                android:id="@+id/tv_five"
+                android:layout_width="wrap_content"
+                android:layout_centerHorizontal="true"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white_ffffff"
+                android:layout_marginTop="5dp"
+                android:textSize="12sp"
+                android:text="终验"/>
+            <TextView
+                android:layout_below="@+id/tv_five"
+                android:id="@+id/tv_five_time"
+                android:layout_centerHorizontal="true"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textColor="@color/white_ffffff"
+                android:layout_marginTop="5dp"
+                android:textSize="10sp"
+                android:text="2020-10-26"/>
+        </RelativeLayout>
+
+    </LinearLayout>
+
+</LinearLayout>

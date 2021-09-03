@@ -1,0 +1,11 @@
+<resources xmlns:tools="http://schemas.android.com/tools" tools:ignore="ResourceName">
+
+    <dimen name="panel_left" >20dp</dimen>
+    <dimen name="panel_right">20dp</dimen>
+    <dimen name="panel_top">20dp</dimen>
+    <dimen name="panel_bottom">15dp</dimen>
+    <dimen name="line_height">35dp</dimen>
+    <dimen name="line_right_distance">10dp</dimen>
+    <dimen name="panel_header_padding">10dp</dimen>
+
+</resources>

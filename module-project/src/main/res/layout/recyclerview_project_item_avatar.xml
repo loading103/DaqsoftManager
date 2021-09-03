@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:ignore="ResourceName">
+
+    <data>
+        <import type="com.daqsoft.module_project.R" />
+
+        <variable
+            name="viewModel"
+            type="com.daqsoft.module_project.viewmodel.itemviewmodel.ProjectItemAvatarViewModel" />
+
+    </data>
+
+   <com.ruffian.library.widget.RConstraintLayout
+       android:padding="1dp"
+       app:corner_radius="24dp"
+       app:background_normal="@color/white_ffffff"
+       app:border_width_normal="1dp"
+       app:border_color_normal="@color/gray_eaeaea"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content">
+
+       <ImageView
+           app:url="@{viewModel.urlObservable}"
+           app:circle="@{Boolean.TRUE}"
+           android:src="@mipmap/txl_details_tx_default_1"
+           placeholderRes="@{viewModel.placeholderObservable}"
+           android:id="@+id/avatar"
+           android:layout_width="24dp"
+           android:layout_height="24dp">
+       </ImageView>
+
+   </com.ruffian.library.widget.RConstraintLayout>
+
+</layout>
+
+

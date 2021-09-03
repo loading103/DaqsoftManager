@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="ResourceName">
+
+    <data>
+
+        <import type="com.daqsoft.module_workbench.R" />
+
+        <variable
+            name="viewModel"
+            type="com.daqsoft.module_workbench.viewmodel.DailyTeamOwnViewModel" />
+    </data>
+
+    <LinearLayout
+        android:background="@color/white_f5f5f5"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.scwang.smart.refresh.layout.SmartRefreshLayout
+                android:id="@+id/refresh"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:overScrollMode="never"
+                        android:scrollbars="none"
+                        app:itemBinding="@{viewModel.itemBinding}"
+                        app:items="@{viewModel.pageList}"
+                        app:diffConfig="@{viewModel.diff}"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        android:id="@+id/recyclerviews"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                    </androidx.recyclerview.widget.RecyclerView>
+
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:id="@+id/ll_nodate"
+                        android:layout_width="match_parent"
+                        android:visibility="gone"
+                        android:layout_height="match_parent">
+                        <ImageView
+                            app:layout_constraintVertical_bias="0.4"
+                            android:id="@+id/image"
+                            android:src="@mipmap/multiple_layout_empty"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintRight_toRightOf="parent"
+                            app:layout_constraintLeft_toLeftOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+                        </ImageView>
+
+                        <TextView
+                            android:id="@+id/content"
+                            android:text="暂无数据"
+                            android:textColor="@color/black_333333"
+                            android:textSize="16sp"
+                            app:layout_constraintTop_toBottomOf="@+id/image"
+                            app:layout_constraintRight_toRightOf="@+id/image"
+                            app:layout_constraintLeft_toLeftOf="@+id/image"
+                            android:layout_width="wrap_content"
+                            android:layout_marginTop="20dp"
+                            android:layout_height="wrap_content">
+                        </TextView>
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </RelativeLayout>
+            </com.scwang.smart.refresh.layout.SmartRefreshLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="15dp"
+                android:visibility="gone"
+                android:id="@+id/ll_top"
+                android:paddingBottom="15dp"
+                android:background="@color/white_f5f5f5">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.chooseTag}"
+                    android:textColor="@color/black_333333"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="19dp"
+                    android:drawableRight="@mipmap/rb_list_arrow_down"
+                    android:drawablePadding="10dp" />
+            </LinearLayout>
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+
+</layout>

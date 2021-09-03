@@ -1,0 +1,17 @@
+<resources>
+    <string name="home_name">module-home</string>
+    <string name="please_enter_keywords_to_search">请输入关键字搜索</string>
+    <string name="top">置顶</string>
+    <string name="cancel_top">取消置顶</string>
+    <string name="mark_read">标为已读</string>
+    <string name="mark_unread">标为未读</string>
+    <string name="remove">移除</string>
+    <string name="month">/%s月</string>
+    <string name="message">消息</string>
+    <string name="daily">日报</string>
+    <string name="mark_all_as_read">全部标为已读（%s）</string>
+
+    <string name="announcement">通知公告</string>
+    <string name="approve">审批</string>
+
+</resources>

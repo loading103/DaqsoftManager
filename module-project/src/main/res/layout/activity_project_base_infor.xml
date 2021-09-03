@@ -1,0 +1,812 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="ResourceName">
+
+    <data>
+        <variable
+            name="viewModel"
+            type="com.daqsoft.module_project.viewmodel.ProjectBaseInforViewModel" />
+        <import type="android.text.TextUtils"/>
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white">
+        <include
+            app:toolbarViewModel="@{viewModel.toolbarViewModel}"
+            android:id="@+id/include"
+            layout="@layout/layout_toolbar">
+        </include>
+        <View
+            android:id="@+id/view1"
+            app:layout_constraintTop_toBottomOf="@+id/include"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:background="@color/white_e8e8e8"
+            android:layout_width="0dp"
+            android:layout_height="1dp">
+        </View>
+
+        <androidx.core.widget.NestedScrollView
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            app:layout_constraintTop_toBottomOf="@+id/view1"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent">
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:paddingBottom="20dp"
+                android:orientation="vertical">
+
+                <TextView
+                    android:text="销售信息"
+                    android:textColor="@color/color_333333"
+                    android:textStyle="bold"
+                    android:textSize="19sp"
+                    android:layout_marginTop="24dp"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="项目名称"
+                        style="@style/ll_left_name" />
+                    <TextView
+                        android:id="@+id/tv_xmmc"
+                        style="@style/ll_right_name"
+                        android:text='@{viewModel.dataObservable.projectName??"—"}'
+                        tools:text="—"/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="创建人"
+                        style="@style/ll_left_name" />
+                    <TextView
+                        android:id="@+id/tv_xmcjr"
+                        style="@style/ll_right_name"
+                        onClickCommand="@{viewModel.onCreateManClick}"
+                        android:text='@{viewModel.dataObservable.projectCreator.employeeName??"—"}'
+                        android:textColor="@color/red_fa4848" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="创建时间"
+                        style="@style/ll_left_name" />
+                    <TextView
+                        android:id="@+id/tv_xmcjsj"
+                        style="@style/ll_right_name"
+                        android:text='@{viewModel.dataObservable.createTime??"—"}' />
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="8dp"
+                    android:background="@color/white_f5f5f5"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_zdy2_right"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:layout_marginTop="24dp"
+                    app:layout_constraintLeft_toLeftOf="parent" />
+
+                <TextView
+                    android:id="@+id/tv_xmxx"
+                    android:text="项目信息"
+                    android:textColor="@color/color_333333"
+                    android:textStyle="bold"
+                    android:textSize="19sp"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="项目类型"
+                        style="@style/ll_left_name" />
+                    <TextView
+                        android:id="@+id/tv_xmlx"
+                        style="@style/ll_right_name"
+                        android:text='@{viewModel.dataObservable.projectTypeName??"—"}' />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="项目流程"
+                        style="@style/ll_left_name" />
+                    <TextView
+                        android:id="@+id/tv_xmlc"
+                        style="@style/ll_right_name"
+                        android:text='@{TextUtils.isEmpty(viewModel.dataObservable.processName)?"—":viewModel.dataObservable.processName}'/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="项目编号"
+                        style="@style/ll_left_name" />
+                    <TextView
+                        android:id="@+id/tv_xmbh"
+                        style="@style/ll_right_name"
+                        android:text='@{TextUtils.isEmpty(viewModel.dataObservable.projectCode)?"—":viewModel.dataObservable.projectCode}'/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="项目等级"
+                        style="@style/ll_left_name" />
+                    <TextView
+                        android:id="@+id/tv_xmdj"
+                        style="@style/ll_right_name"
+                        android:text='@{viewModel.dataObservable.projectGrade??"—"}' />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="创建人"
+                        style="@style/ll_left_name" />
+                    <TextView
+                        android:id="@+id/tv_cjr"
+                        android:textColor="@color/red_fa4848"
+                        style="@style/ll_right_name"
+                        onClickCommand="@{viewModel.onCreateManClick}"
+                        android:text='@{viewModel.dataObservable.projectCreator.employeeName??"—"}'/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="创建时间"
+                        style="@style/ll_left_name" />
+                    <TextView
+                        android:id="@+id/tv_cjsj2"
+                        style="@style/ll_right_name"
+                        android:text='@{viewModel.dataObservable.createTime??"—"}' />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="项目名称"
+                        style="@style/ll_left_name" />
+                    <TextView
+                        android:id="@+id/tv_xmmc2"
+                        style="@style/ll_right_name"
+                        android:text='@{viewModel.dataObservable.projectName??"—"}'/>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="项目金额"
+                        style="@style/ll_left_name" />
+                    <TextView
+                        android:id="@+id/tv_xmje2"
+                        style="@style/ll_right_name"
+                        android:text='@{TextUtils.isEmpty(viewModel.dataObservable.projectAmount)?"—":viewModel.dataObservable.projectAmount+"元"}'/>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="项目背景"
+                        style="@style/ll_left_name" />
+                    <TextView
+                        style="@style/ll_right_name"
+                        android:text='@{TextUtils.isEmpty(viewModel.dataObservable.projectBackgroud)?"—":viewModel.dataObservable.projectBackgroud}'/>
+
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="项目概况"
+                        style="@style/ll_left_name" />
+                    <TextView
+                        style="@style/ll_right_name"
+                        android:text='@{TextUtils.isEmpty(viewModel.dataObservable.projectOverview)?"—":viewModel.dataObservable.projectOverview}'/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="业主单位"
+                        style="@style/ll_left_name" />
+                    <TextView
+                        android:id="@+id/tv_yzdw"
+                        style="@style/ll_right_name"
+                        android:text='@{TextUtils.isEmpty(viewModel.dataObservable.customerName)?"—":viewModel.dataObservable.customerName}'/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="业主姓名"
+                        style="@style/ll_left_name" />
+                    <TextView
+                        android:id="@+id/tv_yzxm"
+                        style="@style/ll_right_name"
+                        android:textColor="@{viewModel.dataObservable.getCustomerUserColor()}"
+                        android:text='@{TextUtils.isEmpty(viewModel.dataObservable.customerUser)?"—":viewModel.dataObservable.customerUser}'/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="业主电话"
+                        style="@style/ll_left_name" />
+                    <TextView
+                        android:id="@+id/tv_yzdh"
+                        style="@style/ll_right_name"
+                        android:text='@{TextUtils.isEmpty(viewModel.dataObservable.customerContactPhone)?"—":viewModel.dataObservable.customerContactPhone}'/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="项目编号"
+                        style="@style/ll_left_name" />
+                    <TextView
+                        android:id="@+id/tv_xmbh2"
+                        style="@style/ll_right_name"
+                        android:text='@{TextUtils.isEmpty(viewModel.dataObservable.projectCode)?"—":viewModel.dataObservable.projectCode}'/>
+                    android:text='@{viewModel.dataObservable.projectCode??"—"}'/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="监理单位"
+                        style="@style/ll_left_name" />
+                    <TextView
+                        android:id="@+id/tv_jldw"
+                        style="@style/ll_right_name"
+                        android:text='@{TextUtils.isEmpty(viewModel.dataObservable.controlUnit)?"—":viewModel.dataObservable.controlUnit}'/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="设计单位"
+                        style="@style/ll_left_name" />
+                    <TextView
+                        android:id="@+id/tv_sjdw"
+                        style="@style/ll_right_name"
+                        android:text='@{TextUtils.isEmpty(viewModel.dataObservable.designUnit)?"—":viewModel.dataObservable.designUnit}'/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="项目责任领导"
+                        style="@style/ll_left_name" />
+                    <TextView
+                        android:textColor="@{viewModel.dataObservable.getEmployeeZjColor()}"
+                        style="@style/ll_right_name"
+                        android:text='@{viewModel.dataObservable.getXmZjLd()??"—"}'/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="项目管理团队"
+                        style="@style/ll_left_name" />
+                    <TextView
+                        android:id="@+id/tv_gltd"
+
+                        android:textColor="@{viewModel.dataObservable.getXmGlryColor()}"
+                        style="@style/ll_right_name"
+                        android:text='@{viewModel.dataObservable.getXmGlry()??"—"}'/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="项目经理"
+                        style="@style/ll_left_name" />
+                    <TextView
+                        android:id="@+id/tv_xmjl"
+                        style="@style/ll_right_name"
+                        android:textColor="@{viewModel.dataObservable.getXmjlColor()}"
+                        android:text='@{viewModel.dataObservable.getXmjl()??"—"}'/>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="8dp"
+                    android:background="@color/white_f5f5f5"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_zdy2_right"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:layout_marginTop="24dp"
+                    app:layout_constraintLeft_toLeftOf="parent" />
+
+                <TextView
+                    android:text="合同信息"
+                    android:textColor="@color/color_333333"
+                    android:textStyle="bold"
+                    android:textSize="19sp"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="合同状态"
+                        style="@style/ll_left_name" />
+                    <TextView
+                        android:id="@+id/tv3_htzt"
+                        style="@style/ll_right_name"
+                        android:text='@{TextUtils.isEmpty(viewModel.dataObservable.contractStatus)?"—":viewModel.dataObservable.contractStatus}'/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="合同金额"
+                        style="@style/ll_left_name" />
+                    <TextView
+                        android:id="@+id/tv3_htje"
+                        style="@style/ll_right_name"
+                        android:text='@{TextUtils.isEmpty(viewModel.dataObservable.signMoney)?"—":viewModel.dataObservable.signMoney}'/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="签订人"
+                        style="@style/ll_left_name" />
+                    <TextView
+                        android:id="@+id/tv3_qdr"
+                        style="@style/ll_right_name"
+                        android:textColor="@{viewModel.dataObservable.getEmployeeColor()}"
+                        onClickCommand="@{viewModel.onSignedClick}"
+                        android:text='@{viewModel.dataObservable.signEmployee.employeeName??"—"}'/>
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="签约时间"
+                        style="@style/ll_left_name" />
+                    <TextView
+                        android:id="@+id/tv3_qdsj"
+                        style="@style/ll_right_name"
+                        android:text='@{TextUtils.isEmpty(viewModel.dataObservable.signTime)?"—":viewModel.dataObservable.signTime}'/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="合同年限"
+                        style="@style/ll_left_name" />
+                    <TextView
+                        android:id="@+id/tv3_htnx"
+                        style="@style/ll_right_name"
+                        android:text='@{TextUtils.isEmpty(viewModel.dataObservable.signEndDate)?"—":viewModel.dataObservable.signEndDate}'/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="质保金"
+                        style="@style/ll_left_name" />
+                    <TextView
+                        android:id="@+id/tv3_zbj"
+                        style="@style/ll_right_name"
+                        android:text='@{TextUtils.isEmpty(viewModel.dataObservable.qualityInsurance)?"—":viewModel.dataObservable.qualityInsurance}'/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="项目定级"
+                        style="@style/ll_left_name" />
+                    <TextView
+                        android:id="@+id/tv3_xmdj"
+                        style="@style/ll_right_name"
+                        android:text='@{viewModel.dataObservable.getXmDiji()}'/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="项目等级"
+                        style="@style/ll_left_name" />
+                    <TextView
+                        android:id="@+id/tv3_xmdji"
+                        style="@style/ll_right_name"
+                        android:text='@{TextUtils.isEmpty(viewModel.dataObservable.projectGrade)?"—":viewModel.dataObservable.projectGrade}'/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="定级人"
+                        style="@style/ll_left_name" />
+                    <TextView
+                        android:id="@+id/tv3_djr"
+                        style="@style/ll_right_name"
+                        android:textColor="@{viewModel.dataObservable.getDjColor()}"
+                        onClickCommand="@{viewModel.onGradeClick}"
+                        android:text='@{viewModel.dataObservable.gradeEmployee.employeeName??"—"}'/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="定级时间"
+                        style="@style/ll_left_name" />
+                    <TextView
+                        android:id="@+id/tv3_djsh"
+                        style="@style/ll_right_name"
+                        android:text='@{viewModel.dataObservable.getXmDijiTime()}'/>
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="8dp"
+                    android:background="@color/white_f5f5f5"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_zdy2_right"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:layout_marginTop="24dp"
+                    app:layout_constraintLeft_toLeftOf="parent" />
+
+                <TextView
+                    android:text="项目交底"
+                    android:textColor="@color/color_333333"
+                    android:textStyle="bold"
+                    android:textSize="19sp"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="交底人"
+                        style="@style/ll_left_name" />
+                    <TextView
+                        android:id="@+id/tv4_jdr"
+                        android:textColor="@{viewModel.dataObservable.getJdrColor()}"
+                        style="@style/ll_right_name"
+                        onClickCommand="@{viewModel.onDisclosureClick}"
+                        android:text='@{viewModel.dataObservable.disclosureEmployee.employeeName??"—"}'/>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="交底时间"
+                        style="@style/ll_left_name" />
+                    <TextView
+                        android:id="@+id/tv4_xdsj"
+                        style="@style/ll_right_name"
+                        android:text='@{TextUtils.isEmpty(viewModel.dataObservable.disclosureTime)?"—":viewModel.dataObservable.disclosureTime}'/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="交底风险单"
+                        style="@style/ll_left_name" />
+                    <TextView
+                        android:id="@+id/tv4_jdfxd"
+                        android:textColor="#333"
+                        style="@style/ll_right_name"
+                        onClickCommand="@{viewModel.onJdFxdClick}"
+                        android:text='@{TextUtils.isEmpty(viewModel.dataObservable.getFxd())?"—":viewModel.dataObservable.getFxd()}'/>
+
+                </LinearLayout>
+
+                <View
+                    android:layout_width="match_parent"
+                    android:layout_height="8dp"
+                    android:background="@color/white_f5f5f5"
+                    app:layout_constraintTop_toBottomOf="@+id/tv_zdy2_right"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:layout_marginTop="24dp"
+                    app:layout_constraintLeft_toLeftOf="parent" />
+
+                <TextView
+                    android:text="验收信息"
+                    android:textColor="@color/color_333333"
+                    android:textStyle="bold"
+                    android:textSize="19sp"
+                    android:layout_marginHorizontal="20dp"
+                    android:layout_marginTop="24dp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="初验要求时间"
+                        style="@style/ll_left_name" />
+                    <TextView
+                        style="@style/ll_right_name"
+
+                        android:text='@{TextUtils.isEmpty(viewModel.dataObservable.firstCheckPaperTime)?"—":viewModel.dataObservable.firstCheckPaperTime}'/>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="初验人"
+                        style="@style/ll_left_name" />
+                    <TextView
+                        style="@style/ll_right_name"
+                        android:textColor="@{viewModel.dataObservable.getCyrColor()}"
+                        onClickCommand="@{viewModel.onFirstCheckClick}"
+                        android:text='@{viewModel.dataObservable.firstCheckEmployee.employeeName??"—"}'/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="验收时间"
+                        style="@style/ll_left_name" />
+                    <TextView
+                        style="@style/ll_right_name"
+                        android:text='@{TextUtils.isEmpty(viewModel.dataObservable.firstCheckTime)?"—":viewModel.dataObservable.firstCheckTime}'/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="终验要求时间"
+                        style="@style/ll_left_name" />
+                    <TextView
+
+                        style="@style/ll_right_name"
+                        android:text='@{TextUtils.isEmpty(viewModel.dataObservable.finalCheckPaperTime)?"—":viewModel.dataObservable.finalCheckPaperTime}'/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="终验人"
+                        style="@style/ll_left_name" />
+                    <TextView
+                        style="@style/ll_right_name"
+                        android:textColor="@{viewModel.dataObservable.getZyrColor()}"
+                        onClickCommand="@{viewModel.onFinalCheckClick}"
+                        android:text='@{viewModel.dataObservable.finalCheckEmployee.employeeName??"—"}'/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="验收时间"
+                        style="@style/ll_left_name" />
+                    <TextView
+                        style="@style/ll_right_name"
+                        android:text='@{TextUtils.isEmpty(viewModel.dataObservable.finalCheckTime)?"—":viewModel.dataObservable.finalCheckTime}'/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="交维人"
+                        style="@style/ll_left_name" />
+                    <TextView
+                        style="@style/ll_right_name"
+                        android:text='@{TextUtils.isEmpty(viewModel.dataObservable.operationUser)?"—":viewModel.dataObservable.operationUser}'/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="交维时间"
+                        style="@style/ll_left_name" />
+                    <TextView
+                        style="@style/ll_right_name"
+                        android:text='@{TextUtils.isEmpty(viewModel.dataObservable.operationTime)?"—":viewModel.dataObservable.operationTime}'/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="是否含运营"
+                        style="@style/ll_left_name" />
+                    <TextView
+
+                        style="@style/ll_right_name"
+                        android:text='@{TextUtils.isEmpty(viewModel.dataObservable.operationState)?"—":viewModel.dataObservable.operationState}'/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="运营开始截止\n时间"
+                        style="@style/ll_left_name" />
+                    <TextView
+
+                        style="@style/ll_right_name"
+                        android:text='@{TextUtils.isEmpty(viewModel.dataObservable.operateTime)?"—":viewModel.dataObservable.operateTime}'/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="是否含运维"
+                        style="@style/ll_left_name" />
+                    <TextView
+                        style="@style/ll_right_name"
+                        android:text='@{TextUtils.isEmpty(viewModel.dataObservable.operativeState)?"—":viewModel.dataObservable.operativeState}'/>
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="运维开始截止\n时间"
+                        style="@style/ll_left_name" />
+                    <TextView
+                        style="@style/ll_right_name"
+                        android:text='@{TextUtils.isEmpty(viewModel.dataObservable.operativeTime)?"—":viewModel.dataObservable.operativeTime}'/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="终止时间"
+                        style="@style/ll_left_name" />
+                    <TextView
+                        style="@style/ll_right_name"
+                        android:text='@{TextUtils.isEmpty(viewModel.dataObservable.stopTime)?"—":viewModel.dataObservable.stopTime}'/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="终止审批单"
+                        style="@style/ll_left_name" />
+                    <TextView
+
+                        style="@style/ll_right_name"
+                        android:textColor="@{viewModel.dataObservable.getSssColor()}"
+                        android:text='@{TextUtils.isEmpty(viewModel.dataObservable.stopProcessItemName)?"—":viewModel.dataObservable.stopProcessItemName}'/>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="财务状态"
+                        style="@style/ll_left_name" />
+                    <TextView
+                        style="@style/ll_right_name"
+                        android:text='@{TextUtils.isEmpty(viewModel.dataObservable.billCloseStatus)?"—":viewModel.dataObservable.billCloseStatus}'/>
+                </LinearLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+                    <TextView
+                        android:text="关账时间"
+                        style="@style/ll_left_name" />
+                    <TextView
+                        style="@style/ll_right_name"
+                        android:text='@{TextUtils.isEmpty(viewModel.dataObservable.billCloseTime)?"—":viewModel.dataObservable.billCloseTime}'/>
+                </LinearLayout>
+            </LinearLayout>
+        </androidx.core.widget.NestedScrollView>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

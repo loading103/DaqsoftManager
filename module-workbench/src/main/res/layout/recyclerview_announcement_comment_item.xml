@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:ignore="ResourceName">
+
+    <data>
+
+        <import type="com.daqsoft.module_workbench.R" />
+
+        <variable
+            name="viewModel"
+            type="com.daqsoft.module_workbench.viewmodel.itemviewmodel.AnnouncementCommentItemViewModel" />
+
+    </data>
+
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_marginHorizontal="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.ruffian.library.widget.RImageView
+            android:id="@+id/avatar"
+            url="@{viewModel.commentObservable.employeeAvatar}"
+            app:placeholderRes="@{R.mipmap.workbench_default_avatar}"
+            android:src="@mipmap/workbench_default_avatar"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:is_circle="true"
+            android:layout_width="32dp"
+            android:layout_height="32dp">
+        </com.ruffian.library.widget.RImageView>
+
+        <TextView
+            android:layout_marginLeft="8dp"
+            android:textStyle="bold"
+            tools:text="张小娟"
+            android:text="@{viewModel.commentObservable.employeeName}"
+            android:textSize="13sp"
+            android:textColor="@color/black_333333"
+            app:layout_constraintLeft_toRightOf="@+id/avatar"
+            app:layout_constraintTop_toTopOf="@+id/avatar"
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </TextView>
+
+        <TextView
+            android:text="@{viewModel.commentObservable.howLongAgo()}"
+            tools:text="2020-02-24 15:33:26（6小时前）"
+            android:textSize="10sp"
+            android:textColor="@color/gray_999999"
+            app:layout_constraintLeft_toLeftOf="@+id/name"
+            app:layout_constraintBottom_toBottomOf="@+id/avatar"
+            android:id="@+id/time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </TextView>
+
+        <TextView
+            tools:text="请执行人注意以下几点：\n1、业主与合作方之间的关系，确认之间无风险。\n2、资料是否准备完善，各位总监审核过没有？总监一定要进行审核后才能发出去。"
+            android:text="@{viewModel.commentObservable.content}"
+            android:layout_marginTop="25dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="@+id/name"
+            app:layout_constraintTop_toBottomOf="@+id/avatar"
+            android:textColor="@color/black_333333"
+            android:textSize="14sp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+        </TextView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
+
+

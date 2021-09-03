@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:ignore="ResourceName">
+
+    <data>
+
+        <import type="com.daqsoft.module_mine.R" />
+
+        <import type="android.view.View" />
+
+
+        <variable
+            name="viewModel"
+            type="com.daqsoft.module_mine.viewmodel.itemviewmodel.WorkMeetingItemContentViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        app:onClickCommand="@{viewModel.itemOnClick}"
+        app:background_normal="@color/white_ffffff"
+        app:corner_radius="13dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+
+            android:id="@+id/circle"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+
+
+            <com.ruffian.library.widget.RView
+                app:selectedFlag="@{viewModel.selectedObservable}"
+                android:id="@+id/big_circle"
+                app:background_normal="@android:color/transparent"
+                app:background_selected="@color/red_fa4848_alpha90"
+                app:corner_radius="12dp"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_width="20dp"
+                android:layout_height="20dp">
+            </com.ruffian.library.widget.RView>
+
+            <com.ruffian.library.widget.RView
+                app:selectedFlag="@{viewModel.selectedObservable}"
+                android:id="@+id/mid_circle"
+                app:background_selected="@color/red_fa4848"
+                app:background_normal="@android:color/transparent"
+                app:corner_radius="12dp"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_width="12dp"
+                android:layout_height="12dp">
+            </com.ruffian.library.widget.RView>
+
+            <com.ruffian.library.widget.RView
+                android:visibility="@{(viewModel.firstObservable || viewModel.selectedObservable) ? View.INVISIBLE : View.VISIBLE}"
+                android:background="@color/gray_ebebeb"
+                app:layout_constraintRight_toRightOf="@id/circle"
+                app:layout_constraintLeft_toLeftOf="@id/circle"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/small_circle"
+                android:layout_width="2dp"
+                android:layout_height="0dp">
+            </com.ruffian.library.widget.RView>
+
+            <com.ruffian.library.widget.RView
+                app:selectedFlag="@{viewModel.selectedObservable}"
+                android:id="@+id/small_circle"
+                app:background_normal="@color/gray_e2e2e2"
+                app:background_selected="@color/red_fa4848"
+                app:corner_radius="12dp"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_width="10dp"
+                android:layout_height="10dp">
+            </com.ruffian.library.widget.RView>
+
+            <com.ruffian.library.widget.RView
+                android:visibility="@{(viewModel.last || viewModel.selectedObservable) ? View.INVISIBLE : View.VISIBLE}"
+                android:background="@color/gray_ebebeb"
+                app:layout_constraintRight_toRightOf="@id/circle"
+                app:layout_constraintLeft_toLeftOf="@id/circle"
+                app:layout_constraintTop_toBottomOf="@id/small_circle"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_width="2dp"
+                android:layout_height="0dp">
+            </com.ruffian.library.widget.RView>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+        <com.ruffian.library.widget.RView
+            android:visibility="@{(viewModel.last || viewModel.selectedObservable) ? View.INVISIBLE : View.VISIBLE}"
+            android:id="@+id/line"
+            android:background="@color/gray_ebebeb"
+            app:layout_constraintRight_toRightOf="@id/circle"
+            app:layout_constraintLeft_toLeftOf="@id/circle"
+            app:layout_constraintTop_toBottomOf="@id/circle"
+            android:layout_width="2dp"
+            android:layout_height="5dp">
+        </com.ruffian.library.widget.RView>
+
+        <com.ruffian.library.widget.RView
+            app:isVisible="@{!viewModel.last}"
+            app:layout_constraintHeight_min="50dp"
+            android:background="@color/gray_ebebeb"
+            app:layout_constraintRight_toRightOf="@id/circle"
+            app:layout_constraintLeft_toLeftOf="@id/circle"
+            app:layout_constraintTop_toBottomOf="@id/line"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="2dp"
+            android:layout_height="0dp">
+        </com.ruffian.library.widget.RView>
+
+        <com.ruffian.library.widget.RTextView
+            app:selectedFlag="@{viewModel.selectedObservable}"
+            app:text_color_selected="@color/red_fa4848"
+            app:text_color_normal="@color/black_333333"
+            android:text="@{viewModel.meetingInfo.startTime}"
+            app:layout_constraintRight_toRightOf="parent"
+            android:layout_marginLeft="35dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="@id/circle"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:id="@+id/time"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+        </com.ruffian.library.widget.RTextView>
+
+
+        <com.ruffian.library.widget.RTextView
+            app:selectedFlag="@{viewModel.selectedObservable}"
+            app:text_color_selected="@color/red_fa4848"
+            app:text_color_normal="@color/gray_999999"
+            android:text="@{String.format(@string/meeting_time_and_content,viewModel.meetingInfoObservable.startTime,viewModel.meetingInfoObservable.endTime,viewModel.meetingInfoObservable.meetingTitle)}"
+            android:layout_marginTop="10dp"
+            android:textColor="@color/gray_999999"
+            android:textSize="13sp"
+            app:layout_constraintRight_toRightOf="@id/time"
+            app:layout_constraintLeft_toLeftOf="@id/time"
+            app:layout_constraintTop_toBottomOf="@+id/time"
+            android:id="@+id/title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+        </com.ruffian.library.widget.RTextView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>
+
+

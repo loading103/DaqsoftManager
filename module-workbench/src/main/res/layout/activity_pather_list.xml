@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="ResourceName">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.daqsoft.module_workbench.viewmodel.PatherListViewModel" />
+    </data>
+
+    <LinearLayout
+        android:background="@color/white_f5f5f5"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+
+        <include
+            app:toolbarViewModel="@{viewModel.toolbarViewModel}"
+            android:id="@+id/include"
+            layout="@layout/layout_toolbar">
+        </include>
+        <androidx.appcompat.widget.LinearLayoutCompat
+            android:layout_width="match_parent"
+            android:layout_height="44dp"
+            android:background="@color/white"
+            android:orientation="horizontal">
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+                <TextView
+                    android:id="@+id/tv_px"
+                    onClickCommand="@{viewModel.onOrderClick}"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:text="@{viewModel.leftTextObserFild}"
+                    android:layout_centerInParent="true"
+                    android:textSize="15sp"
+                    android:layout_marginRight="50dp"
+                    android:textColor="@color/color_333333"
+                    android:drawableRight="@mipmap/rbxq_arrow_down"
+                    android:gravity="center"
+                    android:drawablePadding="5dp"/>
+            </RelativeLayout>
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1">
+                <TextView
+                    android:id="@+id/tv_choose"
+                    onClickCommand="@{viewModel.onChooseClick}"
+                    android:layout_width="wrap_content"
+                    android:layout_centerInParent="true"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:layout_height="match_parent"
+                    android:text="@{viewModel.rightTextObserFild}"
+                    android:textSize="15sp"
+                    android:textColor="@color/color_333333"
+                    android:drawableRight="@mipmap/rbxq_arrow_down"
+                    android:gravity="center"
+                    android:drawablePadding="5dp"/>
+            </RelativeLayout>
+
+        </androidx.appcompat.widget.LinearLayoutCompat>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+            <com.scwang.smart.refresh.layout.SmartRefreshLayout
+                android:id="@+id/refresh"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                    <androidx.recyclerview.widget.RecyclerView
+                        android:overScrollMode="never"
+                        android:scrollbars="none"
+                        app:itemBinding="@{viewModel.itemBinding}"
+                        app:items="@{viewModel.pageList}"
+                        app:diffConfig = "@{viewModel.diff}"
+                        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                        android:id="@+id/recycler_view"
+                        android:layout_marginTop="12dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
+                    </androidx.recyclerview.widget.RecyclerView>
+
+                    <com.ruffian.library.widget.RTextView
+                        android:id="@+id/tv_mine"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:text="回访\n记录"
+                        android:background="@drawable/shape_circle_fa4848"
+                        android:textSize="12sp"
+                        android:gravity="center"
+                        onClickCommand="@{viewModel.recordOnClick}"
+                        android:layout_alignParentRight="true"
+                        android:layout_alignParentBottom="true"
+                        android:layout_marginRight="20dp"
+                        android:visibility="gone"
+                        android:layout_marginBottom="30dp"
+                        android:textColor="@color/white" />
+                </RelativeLayout>
+            </com.scwang.smart.refresh.layout.SmartRefreshLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+</layout>

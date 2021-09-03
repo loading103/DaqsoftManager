@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <array name = "mine_longest_task_time_today">
+        <item>@color/red_ed3e3e</item>
+        <item>@color/red_ea5f54</item>
+    </array>
+
+</resources>

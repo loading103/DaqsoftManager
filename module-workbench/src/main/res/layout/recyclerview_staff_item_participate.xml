@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:ignore="ResourceName">
+
+    <data>
+
+        <import type="com.daqsoft.module_workbench.R" />
+
+        <variable
+            name="viewModel"
+            type="com.daqsoft.module_workbench.viewmodel.itemviewmodel.StaffItemParticipateViewModel" />
+
+    </data>
+
+   <androidx.constraintlayout.widget.ConstraintLayout
+       android:background="@color/white_ffffff"
+       android:paddingBottom="20dp"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+
+       <TextView
+           android:text="@{viewModel.participateObservable.simpleName}"
+           android:layout_marginLeft="20dp"
+           app:layout_constraintLeft_toLeftOf="parent"
+           app:layout_constraintTop_toTopOf="parent"
+           android:textColor="@color/black_333333"
+           android:textSize="16sp"
+           android:id="@+id/title"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content">
+       </TextView>
+
+       <TextView
+           android:text="@{viewModel.participateObservable.customerName}"
+           android:textColor="@color/gray_999999"
+           android:textSize="12sp"
+           android:includeFontPadding="false"
+           android:layout_marginTop="10dp"
+           android:layout_marginHorizontal="20dp"
+           app:layout_constraintRight_toRightOf="parent"
+           app:layout_constraintLeft_toLeftOf="parent"
+           app:layout_constraintTop_toBottomOf="@id/title"
+           android:id="@+id/content"
+           android:layout_width="0dp"
+           android:layout_height="wrap_content">
+       </TextView>
+
+       <View
+           app:isVisible="@{viewModel.lineVisible}"
+           app:layout_constraintRight_toRightOf="@id/content"
+           app:layout_constraintLeft_toLeftOf="@id/content"
+           android:background="@color/gray_e8e8e8"
+           android:layout_marginTop="20dp"
+           app:layout_constraintTop_toBottomOf="@id/content"
+           android:layout_width="0dp"
+           android:layout_height="1dp">
+       </View>
+
+       <per.wsj.library.AndRatingBar
+           android:id="@+id/rating_bar"
+           android:layout_marginLeft="8dp"
+           android:rating="@{Float.valueOf(6-viewModel.participateObservable.projectGrade)}"
+           android:numStars="5"
+           android:stepSize="0.5"
+           android:isIndicator="true"
+           app:starDrawable="@mipmap/txl_details_selected"
+           app:bgDrawable="@mipmap/txl_details_normal"
+           app:keepOriginColor="true"
+           app:starSpacing="3dp"
+           app:layout_constraintLeft_toRightOf="@id/title"
+           app:layout_constraintBottom_toBottomOf="@id/title"
+           app:layout_constraintTop_toTopOf="@id/title"
+           android:layout_width="wrap_content"
+           android:layout_height="10dp">
+       </per.wsj.library.AndRatingBar>
+       
+   </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
+
+

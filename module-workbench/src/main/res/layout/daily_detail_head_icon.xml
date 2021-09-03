@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:ignore="ResourceName">
+
+    <data>
+
+        <import type="com.daqsoft.module_workbench.R" />
+
+        <import type="android.text.TextUtils"/>
+        <import type="android.view.View"/>
+        <variable
+            name="viewModel"
+            type="com.daqsoft.module_workbench.viewmodel.itemviewmodel.DailyDetailHeadImgModel" />
+    </data>
+
+    <LinearLayout
+        app:onClickCommand="@{viewModel.gotoPersonDetail}"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        >
+
+        <com.ruffian.library.widget.RImageView
+            app:is_circle="true"
+            android:scaleType="centerCrop"
+            app:placeholderRes="@{R.mipmap.ic_launcher}"
+            app:url="@{viewModel.readPerson.employeeAvatar}"
+            android:layout_centerInParent="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:id="@+id/avatar"
+            android:layout_width="36dp"
+            android:layout_height="36dp">
+        </com.ruffian.library.widget.RImageView>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.readPerson.employeeName}"
+            android:textSize="11sp"
+            android:layout_marginTop="5dp"
+            tools:text="targetApi"
+            android:textColor="@color/black_333333"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@{viewModel.readPerson.getRead()}"
+            android:textSize="10sp"
+            android:drawableLeft="@mipmap/rbxq_sc"
+            android:drawablePadding="3dp"
+            android:layout_marginTop="5dp"
+            android:visibility="@{TextUtils.isEmpty(viewModel.readPerson.getRead())?View.GONE:View.VISIBLE}"
+            tools:text="10h"
+            android:textColor="@color/gray_999999"/>
+
+    </LinearLayout>
+
+
+
+</layout>

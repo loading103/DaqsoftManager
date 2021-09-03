@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:ignore="ResourceName">
+
+    <data>
+
+        <import type="com.daqsoft.module_workbench.R" />
+
+        <variable
+            name="viewModel"
+            type="com.daqsoft.module_workbench.viewmodel.itemviewmodel.StaffHeadViewModel" />
+
+    </data>
+
+   <androidx.constraintlayout.widget.ConstraintLayout
+       android:background="@color/white_ffffff"
+       android:paddingBottom="20dp"
+       android:paddingHorizontal="20dp"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+
+       <TextView
+           android:id="@+id/title"
+           android:text="@{viewModel.titleObservable}"
+           android:textStyle="bold"
+           android:textColor="@color/black_333333"
+           android:textSize="19sp"
+           app:layout_constraintLeft_toLeftOf="parent"
+           app:layout_constraintBottom_toBottomOf="parent"
+           app:layout_constraintTop_toTopOf="parent"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content">
+       </TextView>
+
+
+       <TextView
+           android:text="@{String.format(@string/amount,viewModel.totalObservable)}"
+           android:layout_marginLeft="6dp"
+           app:layout_constraintLeft_toRightOf="@id/title"
+           app:layout_constraintBottom_toBottomOf="@id/title"
+           app:layout_constraintTop_toTopOf="@+id/title"
+           android:id="@+id/amount"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content">
+       </TextView>
+
+
+       <com.ruffian.library.widget.RTextView
+           app:isVisible="@{viewModel.moreVisible}"
+           app:onClickCommand="@{viewModel.moreOnClick}"
+           app:selectedFlag="@{viewModel.moreSelected}"
+           app:icon_src_selected="@mipmap/txl_details_arrow_up"
+           app:icon_src_normal="@mipmap/txl_details_arrow_down"
+           app:layout_constraintRight_toRightOf="parent"
+           app:layout_constraintBottom_toBottomOf="@id/title"
+           app:layout_constraintTop_toTopOf="@id/title"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content">
+       </com.ruffian.library.widget.RTextView>
+
+   </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
+
+

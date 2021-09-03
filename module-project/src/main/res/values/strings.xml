@@ -1,0 +1,22 @@
+<resources>
+    <string name="project_name">module-project</string>
+    <string name="project_bh">编号：%1$s</string>
+    <string name="total">共%1$s人</string>
+    <string name="module_enter_keywords_to_search">请输入关键字搜索</string>
+    <string name="total_follow">共关注 %1$s</string>
+    <string name="total_wyzd">五重一大 %1$s</string>
+    <string name="total_zd">重大 %1$s</string>
+    <string name="today_task">今日新增任务：%1$s</string>
+    <string name="yest_task">昨日新增任务：%1$s</string>
+    <string name="today_task1">今日新增动态：%1$s</string>
+    <string name="yest_task1">昨日新增动态：%1$s</string>
+    <string name="yest_yz">业主：%1$s</string>
+    <string name="yest_leader">项目责任领导：%1$s</string>
+    <string name="task_dw">%1$s条</string>
+    <string name="task_people">%1$s人</string>
+    <string name="task_hour">%1$s小时</string>
+    <string name="plan_start">计划开始: %1$s</string>
+    <string name="sj_start">实际开始: %1$s</string>
+    <string name="plan_stop">计划截止: %1$s</string>
+    <string name="sj_stop">实际截止: %1$s</string>
+</resources>

@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="android.view.View" />
+
+
+        <variable
+            name="viewModel"
+            type="com.daqsoft.module_workbench.viewmodel.PunchRecordViewModel" />
+
+    </data>
+
+   <androidx.constraintlayout.widget.ConstraintLayout
+       android:layout_width="match_parent"
+       android:layout_height="match_parent">
+
+       <include
+           app:toolbarViewModel="@{viewModel.toolbarViewModel}"
+           android:id="@+id/include"
+           layout="@layout/layout_toolbar">
+       </include>
+
+       <com.haibin.calendarview.CalendarLayout
+           app:layout_constraintBottom_toBottomOf="parent"
+           app:layout_constraintRight_toRightOf="parent"
+           app:layout_constraintLeft_toLeftOf="parent"
+           app:layout_constraintTop_toBottomOf="@+id/include"
+           android:id="@+id/calendarLayout"
+           android:layout_width="0dp"
+           android:layout_height="0dp"
+           android:background="@color/white_ffffff"
+           android:orientation="vertical"
+           app:calendar_show_mode="both_month_week_view">
+
+
+           <com.haibin.calendarview.CalendarView
+               android:paddingBottom="10dp"
+               app:month_view_show_mode="mode_only_current"
+               android:id="@+id/calendarView"
+               android:layout_width="match_parent"
+               android:layout_height="wrap_content"
+               android:background="@color/red_fa4848"
+               app:calendar_padding="10dp"
+               app:month_view="com.daqsoft.module_workbench.widget.CalendarMonthView"
+               app:calendar_height="46dp"
+               app:day_text_size="15sp"
+               app:current_day_text_color="@color/white_ffffff"
+               app:current_month_text_color="@color/white_ffffff"
+               app:selected_text_color="@color/red_fa4848"
+               app:selected_theme_color="@color/white_ffffff"
+               app:week_background="@color/red_fa4848"
+               app:week_text_color="@color/gray_ffcaca"
+               app:week_start_with="sun"
+               app:week_text_size="16sp"
+               app:week_view="com.daqsoft.module_workbench.widget.CalendarWeekView">
+           </com.haibin.calendarview.CalendarView>
+
+           <androidx.constraintlayout.widget.ConstraintLayout
+               android:paddingVertical="32dp"
+               android:paddingHorizontal="20dp"
+               android:layout_width="match_parent"
+               android:layout_height="match_parent">
+
+               <com.ruffian.library.widget.RTextView
+                   android:id="@+id/start_work"
+                   app:layout_constraintLeft_toLeftOf="parent"
+                   app:layout_constraintTop_toTopOf="parent"
+                   app:background_normal="@color/gray_e2e2e2"
+                   app:corner_radius="10dp"
+                   android:layout_width="10dp"
+                   android:layout_height="10dp">
+               </com.ruffian.library.widget.RTextView>
+
+               <TextView
+                   android:id="@+id/start_work_time"
+                   android:text="上班打卡时间 08:36"
+                   android:textStyle="bold"
+                   android:textColor="@color/black_333333"
+                   android:textSize="16sp"
+                   android:layout_marginLeft="14dp"
+                   app:layout_constraintLeft_toRightOf="@+id/start_work"
+                   app:layout_constraintTop_toTopOf="@+id/start_work"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content">
+               </TextView>
+
+               <TextView
+                   android:id="@+id/start_work_address"
+                   android:drawablePadding="7dp"
+                   android:drawableLeft="@mipmap/dkjl_wz"
+                   android:text="四川省成都市双流区华阳镇街道和乐二街171号"
+                   android:textColor="@color/gray_999999"
+                   android:textSize="12sp"
+                   android:layout_marginTop="11dp"
+                   app:layout_constraintLeft_toLeftOf="@+id/start_work_time"
+                   app:layout_constraintTop_toBottomOf="@+id/start_work_time"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content">
+               </TextView>
+
+
+               <ImageView
+                   android:id="@+id/start_work_photo"
+                   android:layout_marginTop="16dp"
+                   app:layout_constraintLeft_toLeftOf="@+id/start_work_address"
+                   app:layout_constraintTop_toBottomOf="@+id/start_work_address"
+                   android:layout_width="80dp"
+                   android:layout_height="80dp">
+               </ImageView>
+
+
+               <com.ruffian.library.widget.RTextView
+                   android:layout_marginTop="24dp"
+                   android:id="@+id/off_work"
+                   app:layout_constraintLeft_toLeftOf="parent"
+                   app:layout_constraintTop_toBottomOf="@+id/start_work_photo"
+                   app:background_normal="@color/gray_e2e2e2"
+                   app:corner_radius="10dp"
+                   android:layout_width="10dp"
+                   android:layout_height="10dp">
+               </com.ruffian.library.widget.RTextView>
+
+               <TextView
+                   android:id="@+id/off_work_time"
+                   android:text="下班打卡时间 21:09"
+                   android:textStyle="bold"
+                   android:textColor="@color/black_333333"
+                   android:textSize="16sp"
+                   android:layout_marginLeft="14dp"
+                   app:layout_constraintLeft_toRightOf="@+id/off_work"
+                   app:layout_constraintTop_toTopOf="@+id/off_work"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content">
+               </TextView>
+
+               <TextView
+                   android:id="@+id/off_work_address"
+                   android:drawablePadding="7dp"
+                   android:drawableLeft="@mipmap/dkjl_wz"
+                   android:text="四川省成都市双流区华阳镇街道和乐二街171号"
+                   android:textColor="@color/gray_999999"
+                   android:textSize="12sp"
+                   android:layout_marginTop="11dp"
+                   app:layout_constraintLeft_toLeftOf="@+id/off_work_time"
+                   app:layout_constraintTop_toBottomOf="@+id/off_work_time"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content">
+               </TextView>
+
+
+               <ImageView
+                   android:id="@+id/off_work_photo"
+                   android:layout_marginTop="16dp"
+                   app:layout_constraintLeft_toLeftOf="@+id/off_work_address"
+                   app:layout_constraintTop_toBottomOf="@+id/off_work_address"
+                   android:layout_width="80dp"
+                   android:layout_height="80dp">
+               </ImageView>
+
+
+               <View
+                   android:background="@color/gray_e2e2e2"
+                   app:layout_constraintBottom_toTopOf="@id/off_work"
+                   app:layout_constraintTop_toBottomOf="@id/start_work"
+                   app:layout_constraintRight_toRightOf="@id/start_work"
+                   app:layout_constraintLeft_toLeftOf="@id/start_work"
+                   android:id="@+id/line"
+                   android:layout_width="2dp"
+                   android:layout_height="0dp">
+               </View>
+
+               <androidx.constraintlayout.widget.Group
+                   android:visibility="@{viewModel.outside ? View.VISIBLE : View.GONE}"
+                   app:constraint_referenced_ids="start_work_photo,off_work_photo"
+                   android:layout_width="wrap_content"
+                   android:layout_height="wrap_content">
+               </androidx.constraintlayout.widget.Group>
+
+           </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+       </com.haibin.calendarview.CalendarLayout>
+
+
+   </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

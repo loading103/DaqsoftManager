@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <com.ruffian.library.widget.RConstraintLayout
+        app:corner_radius_top_left="5dp"
+        app:corner_radius_top_right="5dp"
+        app:background_normal="@color/white_ffffff"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_marginTop="16dp"
+            android:layout_marginLeft="20dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textColor="@color/black_333333"
+            android:textSize="18sp"
+            android:text="取消"
+            android:id="@+id/cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </TextView>
+
+        <TextView
+            android:layout_marginTop="16dp"
+            android:layout_marginRight="20dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:textColor="@color/red_fa4848"
+            android:textSize="18sp"
+            android:text="确定"
+            android:id="@+id/determine"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </TextView>
+
+        <View
+            android:layout_marginTop="16dp"
+            android:background="@color/gray_e2e2e2"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/cancel"
+            android:id="@+id/line"
+            android:layout_width="0dp"
+            android:layout_height="1dp">
+        </View>
+
+        <com.ruffian.library.widget.RTextView
+            android:id="@+id/approve"
+            app:corner_radius="3dp"
+            android:gravity="center"
+            android:text="同意"
+            app:border_width_normal="1dp"
+            app:border_color_selected="@color/red_fa4848"
+            app:border_color_normal="@color/gray_e2e2e2"
+            app:text_color_selected="@color/red_fa4848"
+            app:text_color_normal="@color/black_333333"
+            app:background_normal="@color/white_ffffff"
+            app:background_selected="@color/red_fa4848_alpha90"
+            android:textSize="12sp"
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="20dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/line"
+            android:layout_width="64dp"
+            android:layout_height="30dp">
+        </com.ruffian.library.widget.RTextView>
+
+        <com.ruffian.library.widget.RTextView
+            android:id="@+id/not_approved"
+            app:corner_radius="3dp"
+            android:gravity="center"
+            android:text="不同意"
+            app:border_width_normal="1dp"
+            app:border_color_selected="@color/red_fa4848"
+            app:border_color_normal="@color/gray_e2e2e2"
+            app:text_color_selected="@color/red_fa4848"
+            app:text_color_normal="@color/black_333333"
+            app:background_normal="@color/white_ffffff"
+            app:background_selected="@color/red_fa4848_alpha90"
+            android:textSize="12sp"
+            app:layout_constraintTop_toTopOf="@id/approve"
+            app:layout_constraintLeft_toRightOf="@id/approve"
+            android:layout_marginLeft="11dp"
+            android:layout_width="64dp"
+            android:layout_height="30dp">
+        </com.ruffian.library.widget.RTextView>
+
+
+        <View
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="20dp"
+            android:background="@color/gray_e8e8e8"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/approve"
+            android:id="@+id/line2"
+            android:layout_width="0dp"
+            android:layout_height="1dp">
+        </View>
+
+        <EditText
+            android:id="@+id/content"
+            android:lineSpacingExtra="4dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_marginBottom="50dp"
+            android:hint="请填写审核备注"
+            android:textColorHint="@color/gray_999999"
+            android:textSize="15sp"
+            android:textColor="@color/black_333333"
+            android:layout_marginTop="20dp"
+            android:background="@null"
+            app:layout_constraintRight_toRightOf="@id/line2"
+            app:layout_constraintLeft_toLeftOf="@id/line2"
+            app:layout_constraintTop_toBottomOf="@id/line2"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+        </EditText>
+
+    </com.ruffian.library.widget.RConstraintLayout>
+</layout>

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/nav_dept_doc_search_folder"
+    app:startDestination="@id/module_workbench_deptdocsearchfolderfragment">
+
+    <fragment
+        android:id="@+id/module_workbench_deptdocsearchfolderfragment"
+        android:name="com.daqsoft.module_workbench.fragment.DeptDocSearchFolderFragment"
+        android:label="DeptDocSearchFolderFragment" >
+        <action
+            android:id="@+id/module_workbench_action_module_workbench_deptdocsearchfolderfragment_self"
+            app:destination="@id/module_workbench_deptdocsearchfolderfragment" />
+    </fragment>
+</navigation>

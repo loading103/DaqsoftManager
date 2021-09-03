@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <array name = "yellow">
+        <item>@color/orange_f6931f</item>
+        <item>@color/orange_f7c54e</item>
+    </array>
+
+    <array name = "red">
+        <item>@color/red_fa4848</item>
+        <item>@color/red_ff9090</item>
+    </array>
+
+
+    <array name = "blue">
+        <item>@color/blue_1b7be6</item>
+        <item>@color/blue_46b2fe</item>
+    </array>
+
+    <array name = "green">
+        <item>@color/green_00be55</item>
+        <item>@color/green_6aea48</item>
+    </array>
+
+    <array name = "purple">
+        <item>@color/purple_7f67f9</item>
+        <item>@color/purple_cc93fc</item>
+    </array>
+
+    <array name = "pay_slip_line">
+        <item>@color/white_ffffff</item>
+        <item>@color/gray_cacaca</item>
+    </array>
+
+    <array name = "staff_footer">
+        <item>@color/white_ffffff_alpha100</item>
+        <item>@color/white_ffffff</item>
+        <item>@color/white_ffffff</item>
+    </array>
+
+    <array name = "white">
+        <item>#ffffff</item>
+        <item>#cacaca</item>
+    </array>
+</resources>

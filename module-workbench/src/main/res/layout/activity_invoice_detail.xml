@@ -1,0 +1,330 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <import type="com.daqsoft.module_workbench.R" />
+
+        <variable
+            name="viewModel"
+            type="com.daqsoft.module_workbench.viewmodel.InvoiceDetailViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="@color/red_fa4848"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            app:toolbarViewModel="@{viewModel.toolbarViewModel}"
+            android:id="@+id/include"
+            layout="@layout/layout_toolbar">
+        </include>
+
+
+        <com.ruffian.library.widget.RConstraintLayout
+            android:layout_marginTop="20dp"
+            android:layout_marginBottom="25dp"
+            android:layout_marginHorizontal="12dp"
+            app:corner_radius="5dp"
+            app:background_normal="@color/white_ffffff"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/include"
+            android:layout_width="0dp"
+            android:layout_height="0dp">
+
+            <TextView
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:layout_marginHorizontal="20dp"
+                android:id="@+id/name"
+                android:textStyle="bold"
+                android:text="@{viewModel.invoiceInfo.companyName}"
+                android:textColor="@color/black_333333"
+                android:includeFontPadding="false"
+                android:textSize="18sp"
+                android:layout_marginTop="36dp"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content">
+            </TextView>
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/barrier"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="right"
+                app:constraint_referenced_ids="tax_number_txt,registered_address_txt,phone_number_txt,account_bank_txt,bank_account_txt">
+            </androidx.constraintlayout.widget.Barrier>
+
+
+            <TextView
+                android:text="税号"
+                android:textColor="@color/gray_999999"
+                android:includeFontPadding="false"
+                android:textSize="14sp"
+                android:layout_marginTop="35dp"
+                app:layout_constraintLeft_toLeftOf="@+id/name"
+                app:layout_constraintTop_toBottomOf="@+id/name"
+                android:id="@+id/tax_number_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            </TextView>
+
+            <TextView
+                android:id="@+id/tax_number"
+                android:includeFontPadding="false"
+                android:paddingHorizontal="20dp"
+                android:text="@{viewModel.invoiceInfo.taxCode}"
+                android:textColor="@color/black_333333"
+                android:textSize="14sp"
+                app:layout_constraintRight_toLeftOf="@+id/tax_number_copy"
+                app:layout_constraintLeft_toRightOf="@+id/barrier"
+                app:layout_constraintBaseline_toBaselineOf="@+id/tax_number_txt"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content">
+            </TextView>
+
+            <TextView
+                app:onClickCommand="@{viewModel.taxCodeOnclick}"
+                android:includeFontPadding="false"
+                android:text="复制"
+                android:textSize="14sp"
+                android:textColor="@color/red_fa4848"
+                app:layout_constraintBottom_toBottomOf="@id/tax_number_txt"
+                app:layout_constraintTop_toTopOf="@id/tax_number_txt"
+                app:layout_constraintRight_toRightOf="@id/name"
+                android:id="@+id/tax_number_copy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            </TextView>
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/barrier_tax_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="bottom"
+                app:constraint_referenced_ids="tax_number_txt,tax_number,tax_number_copy">
+            </androidx.constraintlayout.widget.Barrier>
+
+            <TextView
+                android:text="注册地址"
+                android:textColor="@color/gray_999999"
+                android:includeFontPadding="false"
+                android:textSize="14sp"
+                android:layout_marginTop="35dp"
+                app:layout_constraintLeft_toLeftOf="@+id/name"
+                app:layout_constraintTop_toBottomOf="@+id/barrier_tax_number"
+                android:id="@+id/registered_address_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            </TextView>
+
+            <TextView
+                android:id="@+id/registered_address"
+                android:includeFontPadding="false"
+                android:paddingHorizontal="20dp"
+                android:text="@{viewModel.invoiceInfo.address}"
+                android:textColor="@color/black_333333"
+                android:textSize="14sp"
+                app:layout_constraintRight_toLeftOf="@+id/registered_address_copy"
+                app:layout_constraintLeft_toRightOf="@+id/barrier"
+                app:layout_constraintBaseline_toBaselineOf="@+id/registered_address_txt"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content">
+            </TextView>
+
+            <TextView
+                app:onClickCommand="@{viewModel.addressOnclick}"
+                android:includeFontPadding="false"
+                android:text="复制"
+                android:textSize="14sp"
+                android:textColor="@color/red_fa4848"
+                app:layout_constraintBottom_toBottomOf="@id/registered_address_txt"
+                app:layout_constraintTop_toTopOf="@id/registered_address_txt"
+                app:layout_constraintRight_toRightOf="@id/name"
+                android:id="@+id/registered_address_copy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            </TextView>
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/barrier_registered_address"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="bottom"
+                app:constraint_referenced_ids="registered_address_txt,registered_address,registered_address_copy">
+            </androidx.constraintlayout.widget.Barrier>
+
+
+            <TextView
+                android:text="电话号码"
+                android:textColor="@color/gray_999999"
+                android:includeFontPadding="false"
+                android:textSize="14sp"
+                android:layout_marginTop="35dp"
+                app:layout_constraintLeft_toLeftOf="@+id/name"
+                app:layout_constraintTop_toBottomOf="@+id/barrier_registered_address"
+                android:id="@+id/phone_number_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            </TextView>
+
+            <TextView
+                android:id="@+id/phone_number"
+                android:includeFontPadding="false"
+                android:paddingHorizontal="20dp"
+                android:text="@{viewModel.invoiceInfo.phone}"
+                android:textColor="@color/black_333333"
+                android:textSize="14sp"
+                app:layout_constraintRight_toLeftOf="@+id/phone_number_copy"
+                app:layout_constraintLeft_toRightOf="@+id/barrier"
+                app:layout_constraintBaseline_toBaselineOf="@+id/phone_number_txt"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content">
+            </TextView>
+
+            <TextView
+                app:onClickCommand="@{viewModel.phoneOnclick}"
+                android:includeFontPadding="false"
+                android:text="复制"
+                android:textSize="14sp"
+                android:textColor="@color/red_fa4848"
+                app:layout_constraintBottom_toBottomOf="@id/phone_number_txt"
+                app:layout_constraintTop_toTopOf="@id/phone_number_txt"
+                app:layout_constraintRight_toRightOf="@id/name"
+                android:id="@+id/phone_number_copy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            </TextView>
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/barrier_phone_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="bottom"
+                app:constraint_referenced_ids="phone_number_txt,phone_number,phone_number_copy">
+            </androidx.constraintlayout.widget.Barrier>
+
+
+            <TextView
+                android:text="开户银行"
+                android:textColor="@color/gray_999999"
+                android:includeFontPadding="false"
+                android:textSize="14sp"
+                android:layout_marginTop="35dp"
+                app:layout_constraintLeft_toLeftOf="@+id/name"
+                app:layout_constraintTop_toBottomOf="@+id/barrier_phone_number"
+                android:id="@+id/account_bank_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            </TextView>
+
+            <TextView
+                android:id="@+id/account_bank"
+                android:includeFontPadding="false"
+                android:paddingHorizontal="20dp"
+                android:text="@{viewModel.invoiceInfo.bank}"
+                android:textColor="@color/black_333333"
+                android:textSize="14sp"
+                app:layout_constraintRight_toLeftOf="@+id/account_bank_copy"
+                app:layout_constraintLeft_toRightOf="@+id/barrier"
+                app:layout_constraintBaseline_toBaselineOf="@+id/account_bank_txt"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content">
+            </TextView>
+
+            <TextView
+                app:onClickCommand="@{viewModel.bankOnclick}"
+                android:includeFontPadding="false"
+                android:text="复制"
+                android:textSize="14sp"
+                android:textColor="@color/red_fa4848"
+                app:layout_constraintBottom_toBottomOf="@id/account_bank_txt"
+                app:layout_constraintTop_toTopOf="@id/account_bank_txt"
+                app:layout_constraintRight_toRightOf="@id/name"
+                android:id="@+id/account_bank_copy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            </TextView>
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/barrier_account_bank"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="bottom"
+                app:constraint_referenced_ids="account_bank_txt,account_bank,account_bank_copy">
+            </androidx.constraintlayout.widget.Barrier>
+
+            <TextView
+                android:text="银行账号"
+                android:textColor="@color/gray_999999"
+                android:includeFontPadding="false"
+                android:textSize="14sp"
+                android:layout_marginTop="35dp"
+                app:layout_constraintLeft_toLeftOf="@+id/name"
+                app:layout_constraintTop_toBottomOf="@+id/barrier_account_bank"
+                android:id="@+id/bank_account_txt"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            </TextView>
+
+            <TextView
+                android:id="@+id/bank_account"
+                android:includeFontPadding="false"
+                android:paddingHorizontal="20dp"
+                android:text="@{viewModel.invoiceInfo.bankAccount}"
+                android:textColor="@color/black_333333"
+                android:textSize="14sp"
+                app:layout_constraintRight_toLeftOf="@+id/bank_account_copy"
+                app:layout_constraintLeft_toRightOf="@+id/barrier"
+                app:layout_constraintBaseline_toBaselineOf="@+id/bank_account_txt"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content">
+            </TextView>
+
+            <TextView
+                app:onClickCommand="@{viewModel.bankAccountOnclick}"
+                android:includeFontPadding="false"
+                android:text="复制"
+                android:textSize="14sp"
+                android:textColor="@color/red_fa4848"
+                app:layout_constraintBottom_toBottomOf="@id/bank_account_txt"
+                app:layout_constraintTop_toTopOf="@id/bank_account_txt"
+                app:layout_constraintRight_toRightOf="@id/name"
+                android:id="@+id/bank_account_copy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            </TextView>
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/barrier_bank_account"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="bottom"
+                app:constraint_referenced_ids="bank_account_txt,bank_account,bank_account_copy">
+            </androidx.constraintlayout.widget.Barrier>
+
+            <ImageView
+                android:scaleType="fitXY"
+                android:src="@mipmap/fpxx_pic"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content">
+            </ImageView>
+
+        </com.ruffian.library.widget.RConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+</layout>

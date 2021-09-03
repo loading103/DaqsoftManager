@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="ResourceName">
+
+    <data>
+
+
+        <import type="com.daqsoft.module_project.R" />
+
+        <variable
+            name="viewModel"
+            type="com.daqsoft.module_project.viewmodel.ProjectViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        app:viewPaddingTop="@{viewModel.statusBarHeight}"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white_ffffff">
+
+        <com.ruffian.library.widget.REditText
+            android:layout_marginTop="8dp"
+            app:textChanged = "@{viewModel.searchTextChanged}"
+            android:text="@={viewModel.searchObservable}"
+            android:id="@+id/search"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginHorizontal="20dp"
+            android:background="@null"
+            android:drawableLeft="@mipmap/xq_search"
+            android:drawablePadding="8dp"
+            android:gravity="center_vertical"
+            android:hint="请输入项目名称或项目编号"
+            android:includeFontPadding="false"
+            android:paddingHorizontal="12dp"
+            android:paddingVertical="9dp"
+            android:textColor="@color/black_333333"
+            android:textColorHint="@color/gray_999999"
+            android:textSize="14sp"
+            app:background_normal="@color/white_f5f5f5"
+            app:corner_radius="30dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toLeftOf="@+id/cancel"
+            app:layout_constraintTop_toTopOf="parent">
+        </com.ruffian.library.widget.REditText>
+
+        <TextView
+            app:onClickCommand="@{viewModel.cancelOnClick}"
+            android:id="@+id/cancel"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginRight="20dp"
+            android:gravity="center"
+            android:text="@string/cancel"
+            android:textColor="@color/black_333333"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="@+id/search"
+            app:layout_constraintLeft_toRightOf="@+id/search"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@+id/search">
+        </TextView>
+
+        <View
+            android:id="@+id/line"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_marginTop="7dp"
+            android:background="@color/gray_e8e8e8"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/search">
+        </View>
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:background="@color/white_f5f5f5"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/line"
+            android:overScrollMode="never"
+            android:scrollbars="none"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+            app:itemAnimator="@{null}"
+            app:itemBinding="@{viewModel.itemBinding}"
+            app:items="@{viewModel.pageList}"
+            app:diffConfig="@{viewModel.diff}"
+            android:id="@+id/recycler_view"
+            android:layout_width="0dp"
+            android:layout_height="0dp">
+        </androidx.recyclerview.widget.RecyclerView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

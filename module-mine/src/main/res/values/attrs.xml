@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <!--工作进度  自定义属性-->
+    <declare-styleable name="WorkProgressBar">
+        <!--进度背景宽-->
+        <attr name="progress_background_width" format="dimension" />
+        <!--进度背景色-->
+        <attr name="progress_background_color" format="color" />
+        <!--进度条宽-->
+        <attr name="progress_width" format="dimension" />
+        <!--进度颜色-->
+        <attr name="progress_color" format="color" />
+        <!--当前进度-->
+        <attr name="current_progress" format="integer" />
+        <!--文字颜色-->
+        <attr name="text_color" format="color" />
+        <!--文字内容-->
+        <attr name="text_content" format="string" />
+        <!--固定文字-->
+        <attr name="fixed_content" format="string" />
+        <!--固定文字颜色-->
+        <attr name="fixed_color" format="color" />
+
+    </declare-styleable>
+
+</resources>

@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.daqsoft.module_mine.viewmodel.AddressViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="@color/white_f5f5f5"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include
+            app:toolbarViewModel="@{viewModel.toolbarViewModel}"
+            android:id="@+id/include"
+            layout="@layout/layout_toolbar">
+        </include>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:orientation="vertical"
+            android:background="@color/white_ffffff"
+            android:layout_marginTop="8dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/include"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+
+            <TextView
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:textColor="@color/black_333333"
+                android:textSize="15sp"
+                android:id="@+id/province_city_district"
+                android:padding="20dp"
+                android:text="@string/module_mine_province_city_district"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            </TextView>
+
+            <View
+                android:id="@+id/line"
+               app:layout_constraintTop_toBottomOf="@+id/province_city_district"
+                android:layout_marginHorizontal="20dp"
+                android:background="@color/gray_e8e8e8"
+                android:layout_width="match_parent"
+                android:layout_height="1dp">
+            </View>
+
+            <TextView
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/line"
+                android:textColor="@color/black_333333"
+                android:textSize="15sp"
+                android:id="@+id/street_number"
+                android:padding="20dp"
+                android:text="@string/module_mine_street_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+            </TextView>
+
+            <androidx.constraintlayout.widget.Barrier
+                android:id="@+id/barrier"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:barrierDirection="right"
+                app:constraint_referenced_ids="street_number,province_city_district">
+            </androidx.constraintlayout.widget.Barrier>
+
+
+            <TextView
+                android:text="@{viewModel.provinceCityDistrict}"
+                app:onClickCommand="@{viewModel.cityOnClick}"
+                android:ellipsize="end"
+                android:maxLines="2"
+                android:gravity="right|center_vertical"
+                app:layout_constraintLeft_toRightOf="@+id/barrier"
+                android:textColor="@color/black_333333"
+                android:textSize="15sp"
+                android:textColorHint="@color/gray_999999"
+                android:hint="@string/module_mine_please_choose"
+                android:background="@null"
+                android:paddingHorizontal="20dp"
+                android:drawablePadding="9dp"
+                android:drawableRight="@mipmap/mine_grxx_arrow"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toTopOf="@+id/line"
+                android:layout_width="0dp"
+                android:layout_height="0dp">
+            </TextView>
+
+            <EditText
+                app:onFocusChangeCommand="@{viewModel.detailedFocusChange}"
+                android:singleLine="true"
+                android:id="@+id/detailed_address"
+                android:text="@={viewModel.detailedAddress}"
+                android:gravity="right|center_vertical"
+                android:textColor="@color/black_333333"
+                android:textSize="15sp"
+                android:textColorHint="@color/gray_999999"
+                android:hint="@string/module_mine_please_enter_detailed_address"
+                android:background="@null"
+                android:paddingHorizontal="20dp"
+                app:layout_constraintLeft_toRightOf="@+id/barrier"
+                app:layout_constraintRight_toRightOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/line"
+                app:layout_constraintBottom_toBottomOf="parent"
+                android:layout_width="0dp"
+                android:layout_height="0dp">
+            </EditText>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

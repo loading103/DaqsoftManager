@@ -1,0 +1,235 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <import type="android.view.View" />
+        <import type="com.daqsoft.module_workbench.R" />
+
+        <variable
+            name="viewModel"
+            type="com.daqsoft.module_workbench.viewmodel.NotificationDetailViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/white_ffffff">
+
+        <include
+            app:toolbarViewModel="@{viewModel.toolbarViewModel}"
+            android:id="@+id/include"
+            layout="@layout/layout_toolbar">
+        </include>
+
+        <View
+            android:id="@+id/line"
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:background="@color/gray_e8e8e8"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/include">
+        </View>
+
+
+
+        <androidx.core.widget.NestedScrollView
+            android:overScrollMode="never"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/line"
+            app:layout_constraintBottom_toTopOf="@+id/bottom_cl"
+            android:id="@+id/nested_scroll_view"
+            android:layout_width="0dp"
+            android:layout_height="0dp">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    loadResImage="@{viewModel.detail.coverImportance()}"
+                    android:id="@+id/image"
+                    android:layout_marginLeft="20dp"
+                    android:layout_width="15dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    android:layout_marginTop="25dp"
+                    android:layout_height="18dp"/>
+
+                <TextView
+                    android:ellipsize="end"
+                    android:includeFontPadding="false"
+                    android:layout_width="0dp"
+                    app:layout_constraintRight_toRightOf="parent"
+                    android:layout_marginRight="20dp"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.detail.noticeTitle}"
+                    android:textColor="#333333"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:maxLines="2"
+                    android:id="@+id/title"
+                    android:layout_marginLeft="5dp"
+                    app:layout_constraintLeft_toRightOf="@+id/image"
+                    app:layout_constraintTop_toTopOf="@+id/image"
+                    >
+                </TextView>
+
+                <TextView
+                    android:text="@{viewModel.detail.coverNoticeOrganization()}"
+                    android:textColor="#ff9e05"
+                    android:textSize="11sp"
+                    android:gravity="left"
+                    android:id="@+id/tv_content_des"
+                    android:layout_marginTop="12dp"
+                    android:layout_marginLeft="40dp"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/title"
+                    android:layout_width="0dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_height="wrap_content">
+                </TextView>
+
+                <com.ruffian.library.widget.RTextView
+                    android:id="@+id/icon"
+                    android:layout_marginTop="15dp"
+                    android:textStyle="bold"
+                    android:text="@{viewModel.detail.coverTypeName()}"
+                    android:gravity="center"
+                    android:maxLength="2"
+                    android:textSize="10sp"
+                    android:textColor="@color/white_ffffff"
+                    app:gradient_type="linear"
+                    app:gradient_orientation="BL_TR"
+                    app:corner_radius="24dp"
+                    app:layout_constraintLeft_toLeftOf="@id/image"
+                    app:layout_constraintTop_toBottomOf="@id/tv_content_des"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp">
+                </com.ruffian.library.widget.RTextView>
+
+
+                <TextView
+                    android:text="@{viewModel.detail.issueEmployeeName}"
+                    android:layout_marginLeft="6dp"
+                    app:layout_constraintLeft_toRightOf="@id/icon"
+                    app:layout_constraintBottom_toBottomOf="@id/icon"
+                    app:layout_constraintTop_toTopOf="@id/icon"
+                    android:textColor="@color/gray_999999"
+                    android:textSize="12sp"
+                    android:id="@+id/name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                </TextView>
+
+                <TextView
+                    android:text="@{viewModel.detail.coverTime()}"
+                    android:textColor="@color/gray_999999"
+                    android:textSize="12sp"
+                    android:layout_marginLeft="16dp"
+                    app:layout_constraintLeft_toRightOf="@id/name"
+                    app:layout_constraintBaseline_toBaselineOf="@id/name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                </TextView>
+
+                <WebView
+
+                    android:layout_marginVertical="30dp"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/icon"
+                    android:id="@+id/web_view"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content">
+                </WebView>
+
+                <View
+                    android:id="@+id/line_2"
+                    android:layout_width="0dp"
+                    android:layout_height="8dp"
+                    android:layout_marginTop="25dp"
+                    android:background="@color/gray_e8e8e8"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/web_view">
+                </View>
+
+                <TextView
+                    android:textColor="@color/black_333333"
+                    android:textSize="16sp"
+                    android:text="审核记录"
+                    android:layout_marginLeft="20dp"
+                    android:textStyle="bold"
+                    android:layout_marginTop="20dp"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/line_2"
+                    android:id="@+id/audit_record"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content">
+                </TextView>
+
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:overScrollMode="never"
+                    android:layout_marginTop="20dp"
+                    android:layout_marginHorizontal="20dp"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/audit_record"
+                    android:id="@+id/recycleView_record"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content">
+                </androidx.recyclerview.widget.RecyclerView>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.core.widget.NestedScrollView>
+
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:id="@+id/bottom_cl"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="match_parent"
+            android:layout_height="48dp">
+
+            <TextView
+                app:onClickCommand="@{viewModel.modifyOnClick}"
+                android:id="@+id/modify"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                android:background="@color/red_ffe3e3"
+                android:text="修改"
+                android:textSize="16sp"
+                app:layout_constraintHorizontal_weight="1"
+                android:gravity="center"
+                app:layout_constraintRight_toLeftOf="@+id/determine"
+                android:textColor="@color/red_fa4848"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent" />
+            <TextView
+                app:onClickCommand="@{viewModel.determineOnClick}"
+                android:id="@+id/determine"
+                android:layout_width="0dp"
+                android:layout_height="48dp"
+                app:layout_constraintLeft_toRightOf="@+id/modify"
+                android:background="@color/red_fa4848"
+                android:text="确定"
+                android:textColor="#ffffff"
+                android:textSize="16sp"
+                app:layout_constraintHorizontal_weight="2"
+                android:gravity="center"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintRight_toRightOf="parent"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>

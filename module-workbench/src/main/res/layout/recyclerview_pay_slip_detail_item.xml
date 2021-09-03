@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:ignore="ResourceName">
+
+    <data>
+
+        <import type="com.daqsoft.module_workbench.R" />
+
+        <variable
+            name="viewModel"
+            type="com.daqsoft.module_workbench.viewmodel.itemviewmodel.PaySlipDetailItemViewModel" />
+
+    </data>
+
+   <androidx.constraintlayout.widget.ConstraintLayout
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+
+       <TextView
+           app:drawablePosition="@{2}"
+           app:drawableResources="@{viewModel.drawableObservable}"
+           android:drawablePadding="8dp"
+           app:layout_constraintLeft_toLeftOf="parent"
+           app:layout_constraintTop_toTopOf="parent"
+           android:id="@+id/content"
+           android:text="@{viewModel.contentObservable}"
+           android:paddingVertical="20dp"
+           android:gravity="center_vertical"
+           android:textSize="15sp"
+           android:textColor="@color/gray_666666"
+           android:layout_width="wrap_content"
+           android:layout_height="match_parent">
+       </TextView>
+
+       <View
+           android:id="@+id/line"
+           app:layout_constraintTop_toBottomOf="@+id/content"
+           app:layout_constraintRight_toRightOf="parent"
+           app:layout_constraintLeft_toLeftOf="parent"
+           android:background="@color/gray_e8e8e8"
+           android:layout_width="0dp"
+           android:layout_height="1dp">
+       </View>
+
+   </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
+
+

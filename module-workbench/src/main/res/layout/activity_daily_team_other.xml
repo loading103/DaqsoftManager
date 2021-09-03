@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:ignore="ResourceName">
+
+    <data>
+
+        <import type="com.daqsoft.module_workbench.R" />
+
+        <variable
+            name="viewModel"
+            type="com.daqsoft.module_workbench.viewmodel.DailyTeamOtherViewModel" />
+
+
+
+    </data>
+
+    <LinearLayout
+        android:background="@color/white_f5f5f5"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <include
+            app:toolbarViewModel="@{viewModel.toolbarViewModel}"
+            android:id="@+id/include"
+            layout="@layout/layout_toolbar">
+        </include>
+
+        <View
+            android:id="@+id/include_line"
+            android:background="@color/gray_e8e8e8"
+            android:layout_width="match_parent"
+            android:layout_height="1dp">
+        </View>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.scwang.smart.refresh.layout.SmartRefreshLayout
+                android:id="@+id/refresh"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:overScrollMode="never"
+                    android:scrollbars="none"
+                    app:itemBinding="@{viewModel.itemBinding}"
+                    app:items="@{viewModel.pageList}"
+                    app:diffConfig="@{viewModel.diff}"
+                    app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                    android:id="@+id/recycler_view"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+                </androidx.recyclerview.widget.RecyclerView>
+
+            </com.scwang.smart.refresh.layout.SmartRefreshLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:paddingTop="15dp"
+                android:visibility="gone"
+                android:id="@+id/ll_top"
+                onClickCommand="@{viewModel.onChooseClick}"
+                android:paddingBottom="15dp"
+                android:background="@color/white_f5f5f5">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@{viewModel.chooseTag}"
+                    android:textColor="@color/black_333333"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    android:layout_marginLeft="19dp"
+                    android:drawableRight="@mipmap/rb_list_arrow_down"
+                    android:drawablePadding="10dp" />
+            </LinearLayout>
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+
+</layout>

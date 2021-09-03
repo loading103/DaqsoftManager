@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:ignore="ResourceName">
+
+    <data>
+
+        <import type="com.daqsoft.module_workbench.R" />
+
+        <variable
+            name="viewModel"
+            type="com.daqsoft.module_workbench.viewmodel.itemviewmodel.StaffFooterViewModel" />
+
+    </data>
+
+   <androidx.constraintlayout.widget.ConstraintLayout
+       android:paddingHorizontal="40dp"
+       android:paddingVertical="16dp"
+       android:background="@color/white_f5f5f5"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+
+
+       <LinearLayout
+           android:visibility="invisible"
+           app:onClickCommand="@{viewModel.storyOnClick}"
+           app:layout_constraintHorizontal_chainStyle="spread_inside"
+           android:id="@+id/story_ll"
+           app:layout_constraintRight_toLeftOf="@+id/message_ll"
+           app:layout_constraintLeft_toLeftOf="parent"
+           app:layout_constraintTop_toTopOf="parent"
+           app:layout_constraintBottom_toBottomOf="parent"
+           android:orientation="vertical"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content">
+
+           <ImageView
+               android:layout_gravity="center"
+               android:src="@mipmap/txl_details_gs"
+               android:layout_width="44dp"
+               android:layout_height="44dp">
+           </ImageView>
+
+           <TextView
+               android:layout_marginTop="8dp"
+               android:layout_gravity="center"
+               android:textSize="11sp"
+               android:textColor="@color/black_333333"
+               android:text="@string/his_story"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content">
+           </TextView>
+       </LinearLayout>
+
+
+       <LinearLayout
+           android:visibility="invisible"
+           app:onClickCommand="@{viewModel.messageOnClick}"
+           android:id="@+id/message_ll"
+           app:layout_constraintLeft_toRightOf="@id/story_ll"
+           app:layout_constraintRight_toLeftOf="@id/call_ll"
+           app:layout_constraintTop_toTopOf="parent"
+           app:layout_constraintBottom_toBottomOf="parent"
+           android:orientation="vertical"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content">
+
+           <ImageView
+               android:layout_gravity="center"
+               android:src="@mipmap/txl_details_fxx"
+               android:layout_width="44dp"
+               android:layout_height="44dp">
+           </ImageView>
+
+           <TextView
+               android:layout_marginTop="8dp"
+               android:layout_gravity="center"
+               android:textSize="11sp"
+               android:textColor="@color/black_333333"
+               android:text="@string/send_message"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content">
+           </TextView>
+       </LinearLayout>
+
+       <LinearLayout
+           android:visibility="invisible"
+           app:onClickCommand="@{viewModel.callOnClick}"
+           android:id="@+id/call_ll"
+           app:layout_constraintLeft_toRightOf="@+id/message_ll"
+           app:layout_constraintRight_toRightOf="parent"
+           app:layout_constraintTop_toTopOf="parent"
+           app:layout_constraintBottom_toBottomOf="parent"
+           android:orientation="vertical"
+           android:layout_width="wrap_content"
+           android:layout_height="wrap_content">
+
+           <ImageView
+               android:layout_gravity="center"
+               android:src="@mipmap/txl_details_ddh"
+               android:layout_width="44dp"
+               android:layout_height="44dp">
+           </ImageView>
+
+           <TextView
+               android:layout_marginTop="8dp"
+               android:layout_gravity="center"
+               android:textSize="11sp"
+               android:textColor="@color/black_333333"
+               android:text="@string/make_telephone_call"
+               android:layout_width="wrap_content"
+               android:layout_height="wrap_content">
+           </TextView>
+       </LinearLayout>
+
+
+   </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
+
+

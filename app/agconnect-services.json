@@ -1,0 +1,37 @@
+{
+	"agcgw":{
+		"websocketbackurl":"connect-ws-drcn.hispace.dbankcloud.cn",
+		"backurl":"connect-drcn.dbankcloud.cn",
+		"websocketurl":"connect-ws-drcn.hispace.dbankcloud.com",
+		"url":"connect-drcn.hispace.hicloud.com"
+	},
+	"client":{
+		"appType":"1",
+		"cp_id":"890086000102248603",
+		"product_id":"736430079244754234",
+		"client_id":"523725994343805312",
+		"client_secret":"44948F9024133762FE69AAB0EDE1AB489755C61EB0DF3A55CDE280C422840552",
+		"project_id":"736430079244754234",
+		"app_id":"103547525",
+		"api_key":"CgB6e3x9b0tQsfpJ8krC/hRHcvngQIkI9/ZKPAJhJ1f//B8Dmh+uD0m4qsFgGjyRPmUs6E8835+IzrHAi7c/xwKZ",
+		"package_name":"com.daqsoft.manager.daq"
+	},
+	"service":{
+		"analytics":{
+			"collector_url":"datacollector-drcn.dt.hicloud.com,datacollector-drcn.dt.dbankcloud.cn",
+			"resource_id":"p1",
+			"channel_id":""
+		},
+		"search":{
+			"url":"https://search-drcn.cloud.huawei.com"
+		},
+		"cloudstorage":{
+			"storage_url":"https://agc-storage-drcn.platform.dbankcloud.cn"
+		},
+		"ml":{
+			"mlservice_url":"ml-api-drcn.ai.dbankcloud.com,ml-api-drcn.ai.dbankcloud.cn"
+		}
+	},
+	"region":"CN",
+	"configuration_version":"1.0"
+}

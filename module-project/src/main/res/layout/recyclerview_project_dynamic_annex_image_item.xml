@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        tools:ignore="ResourceName">
+
+        <com.ruffian.library.widget.RImageView
+            android:layout_marginTop="6dp"
+            android:layout_marginRight="6dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:corner_radius="2dp"
+            android:scaleType="centerCrop"
+            android:id="@+id/fiv"
+            android:layout_width="80dp"
+            android:layout_height="80dp" />
+
+        <ImageView
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            android:id="@+id/iv_del"
+            android:layout_width="12dp"
+            android:layout_height="12dp"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/xpl_delect" />
+
+
+        <ImageView
+            android:visibility="gone"
+            app:layout_constraintRight_toRightOf="@+id/fiv"
+            app:layout_constraintLeft_toLeftOf="@+id/fiv"
+            app:layout_constraintBottom_toBottomOf="@+id/fiv"
+            app:layout_constraintTop_toTopOf="@+id/fiv"
+            android:src="@mipmap/report_fill_icon_play"
+            android:scaleType="centerCrop"
+            android:id="@+id/video"
+            android:layout_width="22dp"
+            android:layout_height="22dp">
+        </ImageView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:ignore="ResourceName">
+
+    <data>
+
+        <import type="com.daqsoft.module_workbench.R" />
+
+        <variable
+            name="viewModel"
+            type="com.daqsoft.module_workbench.viewmodel.itemviewmodel.ContactsItemViewModel" />
+
+    </data>
+
+   <androidx.constraintlayout.widget.ConstraintLayout
+       app:onClickCommand="@{viewModel.itemOnClick}"
+       android:paddingLeft="20dp"
+       android:layout_width="match_parent"
+       android:layout_height="wrap_content">
+
+       <com.ruffian.library.widget.RConstraintLayout
+           android:id="@+id/avatar_cl"
+           app:corner_radius="5dp"
+           app:border_color_normal="@color/gray_d9dadc"
+           app:background_normal="@color/white_ffffff"
+           app:layout_constraintTop_toTopOf="parent"
+           app:layout_constraintLeft_toLeftOf="parent"
+           android:layout_width="44dp"
+           android:layout_height="44dp">
+
+           <ImageView
+               android:src="@mipmap/txl_list_default"
+               android:id="@+id/dir"
+               android:layout_width="match_parent"
+               android:layout_height="match_parent">
+           </ImageView>
+
+           <androidx.cardview.widget.CardView
+               android:visibility="gone"
+               android:layout_margin="2dp"
+               app:cardCornerRadius="5dp"
+               app:cardElevation="0dp"
+               android:layout_width="match_parent"
+               android:layout_height="match_parent">
+
+               <androidx.recyclerview.widget.RecyclerView
+                   android:visibility="gone"
+                   android:id="@+id/recycle_view"
+                   app:itemBinding="@{viewModel.itemBinding}"
+                   app:items="@{viewModel.observableList}"
+                   android:layout_width="match_parent"
+                   android:layout_height="match_parent">
+               </androidx.recyclerview.widget.RecyclerView>
+
+           </androidx.cardview.widget.CardView>
+
+       </com.ruffian.library.widget.RConstraintLayout>
+
+
+       <TextView
+           android:ellipsize="end"
+           android:singleLine="true"
+           app:layout_constraintRight_toRightOf="parent"
+           app:layout_constraintBottom_toTopOf="@+id/amount"
+           android:includeFontPadding="false"
+           android:layout_marginLeft="10dp"
+           app:layout_constraintLeft_toRightOf="@id/avatar_cl"
+           app:layout_constraintTop_toTopOf="@id/avatar_cl"
+           android:text="@{viewModel.childObservable.organizationName}"
+           android:textColor="@color/black_333333"
+           android:textSize="16sp"
+           android:id="@+id/title"
+           android:layout_width="0dp"
+           android:layout_height="wrap_content">
+       </TextView>
+
+       <TextView
+           android:ellipsize="end"
+           android:singleLine="true"
+           app:layout_constraintRight_toRightOf="parent"
+           app:layout_constraintTop_toBottomOf="@id/title"
+           android:text="@{String.format(@string/total,String.valueOf(viewModel.childObservable.cnt))}"
+           android:textColor="@color/gray_999999"
+           android:textSize="13sp"
+           app:layout_constraintLeft_toLeftOf="@id/title"
+           app:layout_constraintBottom_toBottomOf="@id/avatar_cl"
+           android:includeFontPadding="false"
+           android:id="@+id/amount"
+           android:layout_width="0dp"
+           android:layout_height="wrap_content">
+       </TextView>
+
+       <View
+           android:layout_marginTop="10dp"
+           app:layout_constraintLeft_toRightOf="@+id/avatar_cl"
+           app:layout_constraintRight_toRightOf="parent"
+           app:layout_constraintTop_toBottomOf="@id/avatar_cl"
+           android:background="@color/gray_f3f3f3"
+           android:layout_width="0dp"
+           android:layout_height="1dp">
+       </View>
+
+   </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
+
+

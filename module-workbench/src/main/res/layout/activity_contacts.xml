@@ -1,0 +1,277 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.daqsoft.module_workbench.viewmodel.ContactsViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="@color/white_ffffff"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.coordinatorlayout.widget.CoordinatorLayout
+            android:id="@+id/coordinator"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <com.google.android.material.appbar.AppBarLayout
+                android:orientation="vertical"
+                app:elevation="0dp"
+                android:background="@android:color/transparent"
+                android:id="@+id/appbar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    app:layout_scrollFlags="scroll"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <ImageView
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_scrollFlags="scroll"
+                        android:scaleType="fitXY"
+                        android:src="@mipmap/txl_bg"
+                        android:id="@+id/bg"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+                    </ImageView>
+
+                    <ImageView
+                        android:layout_marginLeft="65dp"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintBottom_toBottomOf="@+id/mascot"
+                        app:layout_constraintTop_toTopOf="@+id/mascot"
+                        android:id="@+id/logo"
+                        android:src="@mipmap/txl_logo"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                    </ImageView>
+
+                    <ImageView
+                        android:elevation="10dp"
+                        android:layout_marginTop="76dp"
+                        android:layout_marginRight="65dp"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintTop_toTopOf="parent"
+                        android:src="@mipmap/txl_jxw"
+                        android:id="@+id/mascot"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content">
+                    </ImageView>
+
+                    <androidx.cardview.widget.CardView
+                        android:translationY="-3dp"
+                        android:elevation="0dp"
+                        android:id="@+id/card_view"
+                        app:cardElevation="5dp"
+                        app:cardCornerRadius="10dp"
+                        android:layout_marginHorizontal="12dp"
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        app:layout_constraintTop_toBottomOf="@+id/mascot"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_marginHorizontal="16dp"
+                            android:layout_marginVertical="20dp"
+                            android:layout_width="match_parent"
+                            android:minHeight="116dp"
+                            android:layout_height="wrap_content">
+
+                            <TextView
+                                app:onClickCommand="@{viewModel.companyDetailOnClick}"
+                                android:drawableRight="@mipmap/add_tzgg_arrow"
+                                android:includeFontPadding="false"
+                                app:layout_constraintLeft_toLeftOf="parent"
+                                app:layout_constraintRight_toRightOf="parent"
+                                app:layout_constraintTop_toTopOf="parent"
+                                android:text="@{viewModel.companyInfo.companyFullName}"
+                                android:id="@+id/company_name"
+                                android:textColor="@color/black_333333"
+                                android:textSize="16sp"
+                                android:textStyle="bold"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content">
+                            </TextView>
+
+                            <com.ruffian.library.widget.RTextView
+                                android:includeFontPadding="false"
+                                android:layout_marginTop="16dp"
+                                app:layout_constraintVertical_chainStyle="packed"
+                                app:icon_normal_left="@mipmap/txl_dh"
+                                app:icon_height="12dp"
+                                app:icon_width="12dp"
+                                app:layout_constraintLeft_toLeftOf="@+id/company_name"
+                                android:drawablePadding="8dp"
+                                app:layout_constraintTop_toBottomOf="@+id/company_name"
+                                android:text='@{String.format(@string/phone,viewModel.companyInfo.companyPhone??"")}'
+                                android:drawableLeft="@mipmap/txl_dh"
+                                android:textColor="@color/gray_999999"
+                                android:textSize="13sp"
+                                android:id="@+id/phone"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+                            </com.ruffian.library.widget.RTextView>
+
+                            <com.ruffian.library.widget.RTextView
+                                app:onClickCommand="@{viewModel.websiteOnClick}"
+                                android:includeFontPadding="false"
+                                android:layout_marginTop="12dp"
+                                app:icon_normal_left="@mipmap/txl_gw"
+                                app:icon_height="12dp"
+                                app:icon_width="12dp"
+                                app:layout_constraintLeft_toLeftOf="@+id/company_name"
+                                android:drawablePadding="8dp"
+                                app:layout_constraintTop_toBottomOf="@+id/phone"
+                                android:text='@{String.format(@string/website,viewModel.companyInfo.companyWebsite??"")}'
+                                android:textColor="@color/gray_999999"
+                                android:textSize="13sp"
+                                android:id="@+id/website"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+                            </com.ruffian.library.widget.RTextView>
+
+                            <com.ruffian.library.widget.RTextView
+                                app:onClickCommand="@{viewModel.cloudOnClick}"
+                                android:includeFontPadding="false"
+                                android:layout_marginTop="12dp"
+                                app:icon_normal_left="@mipmap/txl_dqy"
+                                app:icon_height="12dp"
+                                app:icon_width="12dp"
+                                app:layout_constraintLeft_toLeftOf="@+id/company_name"
+                                android:drawablePadding="7dp"
+                                app:layout_constraintTop_toBottomOf="@+id/website"
+                                android:text='@{String.format(@string/cloud,viewModel.companyInfo.getCloud()??"")}'
+                                android:textColor="@color/gray_999999"
+                                android:textSize="13sp"
+                                android:id="@+id/cloud"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+                            </com.ruffian.library.widget.RTextView>
+
+                            <com.ruffian.library.widget.RTextView
+                                android:layout_marginTop="12dp"
+                                android:includeFontPadding="false"
+                                app:layout_constraintLeft_toLeftOf="parent"
+                                app:layout_constraintTop_toBottomOf="@+id/cloud"
+                                android:drawablePadding="9dp"
+                                app:icon_normal_left="@mipmap/txl_wz"
+                                app:icon_width="12dp"
+                                app:icon_height="12dp"
+                                android:textColor="@color/gray_999999"
+                                android:textSize="13sp"
+                                android:id="@+id/address"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+                            </com.ruffian.library.widget.RTextView>
+
+                            <com.ruffian.library.widget.RTextView
+                                android:layout_marginRight="10dp"
+                                app:layout_constraintRight_toLeftOf="@+id/copy"
+                                android:includeFontPadding="false"
+                               app:layout_constraintLeft_toRightOf="@+id/address"
+                                app:layout_constraintTop_toTopOf="@+id/address"
+                                android:drawablePadding="9dp"
+                                android:text='@{String.format(@string/address,viewModel.companyInfo.companyAddress??"")}'
+                                android:textColor="@color/gray_999999"
+                                android:textSize="13sp"
+                                android:id="@+id/address_content"
+                                android:layout_width="0dp"
+                                android:layout_height="wrap_content">
+                            </com.ruffian.library.widget.RTextView>
+
+
+                            <TextView
+                                app:onClickCommand="@{viewModel.copyOnclick}"
+                                android:text="@string/copy"
+                                android:textColor="@color/red_fa4848"
+                                android:textSize="13sp"
+                                android:id="@+id/copy"
+                                app:layout_constraintRight_toRightOf="parent"
+                                app:layout_constraintBaseline_toBaselineOf="@+id/address"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+                            </TextView>
+
+                            <TextView
+                                app:onClickCommand="@{viewModel.callOnclick}"
+                                android:text="@string/call"
+                                android:textColor="@color/red_fa4848"
+                                android:textSize="13sp"
+                                android:id="@+id/call"
+                                app:layout_constraintRight_toRightOf="parent"
+                                app:layout_constraintBaseline_toBaselineOf="@+id/phone"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content">
+                            </TextView>
+
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                    </androidx.cardview.widget.CardView>
+
+                    <View
+                        app:layout_constraintRight_toRightOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        android:background="@color/white_f5f5f5"
+                        android:layout_marginTop="20dp"
+                        app:layout_constraintTop_toBottomOf="@+id/card_view"
+                        android:layout_width="match_parent"
+                        android:layout_height="8dp">
+                    </View>
+
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </com.google.android.material.appbar.AppBarLayout>
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:overScrollMode="never"
+                android:scrollbars="none"
+                app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"
+                app:itemAnimator="@{null}"
+                app:itemBinding="@{viewModel.itemBinding}"
+                app:items="@{viewModel.observableList}"
+                android:id="@+id/recycler_view"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+            </androidx.recyclerview.widget.RecyclerView>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <include
+                    app:toolbarViewModel="@{viewModel.toolbarViewModel}"
+                    android:id="@+id/include"
+                    layout="@layout/layout_toolbar">
+                </include>
+
+                <View
+                    android:visibility="gone"
+                    android:id="@+id/include_line"
+                    app:layout_constraintTop_toBottomOf="@+id/include"
+                    app:layout_constraintRight_toRightOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"
+                    android:background="@color/gray_e8e8e8"
+                    android:layout_width="0dp"
+                    android:layout_height="1dp">
+                </View>
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

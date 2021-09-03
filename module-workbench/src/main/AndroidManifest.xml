@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.daqsoft.module_workbench">
+
+    <uses-permission android:name="android.permission.VIBRATE" />
+    <application>
+
+        <activity android:name=".activity.ContactsActivity" />
+        <activity android:name=".activity.DepartmentActivity" />
+        <activity android:name=".activity.StaffActivity" />
+        <activity android:name=".activity.AnnouncementActivity" />
+        <activity android:name=".activity.AnnouncementDetailActivity" />
+        <activity android:name=".activity.PaySlipActivity" />
+        <activity android:name=".activity.PaySlipDetailActivity" />
+        <activity android:name=".activity.StaffSearchActivity" />
+        <activity android:name=".activity.PunchActivity" />
+        <activity android:name=".activity.CareThesaurusActivity" />
+        <activity android:name=".activity.CareThesauruSearchActivity" />
+        <activity android:name=".activity.CareThesauruAddActivity"
+            android:windowSoftInputMode="adjustPan" />
+        <!-- 定位需要的服务 适配Android Q需要加上android:foregroundServiceType="location"-->
+        <service
+            android:name="com.amap.api.location.APSService"
+            android:foregroundServiceType="location" />
+
+
+        <activity android:name=".activity.PunchRecordActivity" />
+        <activity android:name=".activity.DeptDocActivity" />
+        <activity android:name=".activity.ProjectDeptDocActivity"/>
+        <activity android:name=".activity.ProDeptDocSearchActivity"/>
+
+        <activity android:name=".activity.NotificationActivity" />
+        <activity android:name=".activity.NotificationAddActivity" />
+        <activity android:name=".activity.NotificationDetailActivity" />
+        <activity android:name=".activity.NotificationSearchActivity" />
+        <activity android:name=".activity.DeptDocSearchActivity" />
+        <activity android:name=".activity.OrgOrStaffSelectActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".activity.DeptDocSearchFolderActivity" />
+        <activity android:name=".activity.DailyCommentActivity" />
+        <activity android:name=".activity.DailyListActivity" />
+        <activity android:name=".activity.DailyDetailActivity" />
+        <activity android:name=".activity.CompanyDetailActivity" />
+        <activity android:name=".activity.InvoiceDetailActivity" />
+        <activity android:name=".activity.DailySearchActivity" />
+        <activity android:name=".activity.DailySearchTeamActivity"/>
+        <activity android:name=".activity.DailySearchTeamOwnActivity"/>
+        <activity android:name=".activity.AnnouncementCommentActivity" />
+        <activity android:name=".activity.DailySendActivity" />
+        <activity android:name=".activity.DailyRuleActivity" />
+        <activity android:name=".activity.DailyTeamActivity" />
+        <activity android:name=".activity.CustomerListActivity" />
+        <activity android:name=".activity.CustomerDetailActivity" />
+        <activity android:name=".activity.CustomerRecoredActivity" />
+        <activity android:name=".activity.CustomerSearchActivity" />
+        <activity android:name=".activity.PatherListActivity" />
+        <activity android:name=".activity.PatherSearchActivity" />
+        <activity android:name=".activity.PatherRecoredActivity" />
+        <activity android:name=".activity.PatherDetailActivity" />
+    </application>
+
+</manifest>

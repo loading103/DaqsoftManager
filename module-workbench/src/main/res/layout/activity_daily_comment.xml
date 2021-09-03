@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+        <variable
+            name="viewModel"
+            type="com.daqsoft.module_workbench.viewmodel.DailyCommentViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="@color/white_ffffff"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <include
+            app:toolbarViewModel="@{viewModel.toolbarViewModel}"
+            android:id="@+id/include"
+            layout="@layout/layout_toolbar">
+        </include>
+
+        <View
+            android:id="@+id/include_line"
+            android:background="@color/gray_e8e8e8"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/include"
+            android:layout_width="0dp"
+            android:layout_height="1dp">
+        </View>
+
+        <EditText
+            android:text="@={viewModel.comment}"
+            android:gravity="top|left"
+            android:padding="20dp"
+            android:autoLink="web"
+            android:hint="记录这一刻，发表你的观点..."
+            android:textColorHint="@color/gray_999999"
+            android:textSize="15sp"
+            android:textColor="@color/black_333333"
+            android:id="@+id/content"
+            android:background="@null"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/include_line"
+            app:layout_constraintBottom_toTopOf="@+id/send"
+            android:layout_width="0dp"
+            android:layout_height="0dp">
+        </EditText>
+
+
+        <com.ruffian.library.widget.RTextView
+            onClickCommand="@{viewModel.sendOnClick}"
+            android:id="@+id/send"
+            android:gravity="center"
+            android:textColor="#ffffff"
+            android:textSize="16sp"
+            android:text="发送"
+            app:background_normal="@color/red_fa4848"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            android:layout_width="0dp"
+            android:layout_height="52dp">
+        </com.ruffian.library.widget.RTextView>
+
+<!--        <androidx.core.widget.NestedScrollView-->
+<!--            android:paddingBottom="20dp"-->
+<!--            android:scrollbars="none"-->
+<!--            android:overScrollMode="never"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="0dp"-->
+<!--            app:layout_constraintBottom_toTopOf="@+id/bottom_menu"-->
+<!--            app:layout_constraintHorizontal_bias="1.0"-->
+<!--            app:layout_constraintLeft_toLeftOf="parent"-->
+<!--            app:layout_constraintRight_toRightOf="parent"-->
+<!--            app:layout_constraintTop_toBottomOf="@+id/include_line">-->
+
+
+<!--            <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--                android:paddingHorizontal="20dp"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="match_parent">-->
+
+<!--                <EditText-->
+<!--                    android:autoLink="web"-->
+<!--                    android:hint="记录这一刻，发表你的观点..."-->
+<!--                    android:textColorHint="@color/gray_999999"-->
+<!--                    android:paddingVertical="20dp"-->
+<!--                    android:textSize="15sp"-->
+<!--                    android:textColor="@color/black_333333"-->
+<!--                    android:id="@+id/content"-->
+<!--                    android:background="@null"-->
+<!--                    app:layout_constraintRight_toRightOf="parent"-->
+<!--                    app:layout_constraintLeft_toLeftOf="parent"-->
+<!--                    app:layout_constraintTop_toTopOf="parent"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="wrap_content">-->
+<!--                </EditText>-->
+
+<!--                <androidx.recyclerview.widget.RecyclerView-->
+<!--                    android:nestedScrollingEnabled="false"-->
+<!--                    android:overScrollMode="never"-->
+<!--                    android:scrollbars="none"-->
+<!--                    android:visibility="gone"-->
+<!--                    app:layout_constraintTop_toBottomOf="@+id/content"-->
+<!--                    app:layout_constraintRight_toRightOf="parent"-->
+<!--                    app:layout_constraintLeft_toLeftOf="parent"-->
+<!--                    android:id="@+id/image_recycler_view"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="wrap_content">-->
+<!--                </androidx.recyclerview.widget.RecyclerView>-->
+
+<!--                <androidx.recyclerview.widget.RecyclerView-->
+<!--                    android:overScrollMode="never"-->
+<!--                    android:scrollbars="none"-->
+<!--                    android:nestedScrollingEnabled="false"-->
+<!--                    android:visibility="gone"-->
+<!--                    app:layout_goneMarginTop="0dp"-->
+<!--                    android:layout_marginTop="20dp"-->
+<!--                    app:layout_constraintTop_toBottomOf="@+id/image_recycler_view"-->
+<!--                    app:layout_constraintRight_toRightOf="parent"-->
+<!--                    app:layout_constraintLeft_toLeftOf="parent"-->
+<!--                    android:id="@+id/doc_recycler_view"-->
+<!--                    android:layout_width="0dp"-->
+<!--                    android:layout_height="wrap_content">-->
+<!--                </androidx.recyclerview.widget.RecyclerView>-->
+
+
+<!--            </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+
+
+<!--        </androidx.core.widget.NestedScrollView>-->
+
+<!--        <androidx.constraintlayout.widget.ConstraintLayout-->
+<!--            android:paddingHorizontal="25dp"-->
+<!--            android:id="@+id/bottom_menu"-->
+<!--            app:layout_constraintRight_toRightOf="parent"-->
+<!--            app:layout_constraintLeft_toLeftOf="parent"-->
+<!--            app:layout_constraintBottom_toBottomOf="parent"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="52dp">-->
+
+<!--            <ImageView-->
+<!--                app:layout_constraintHorizontal_chainStyle="spread_inside"-->
+<!--                app:layout_constraintRight_toLeftOf="@+id/emoji"-->
+<!--                app:layout_constraintLeft_toLeftOf="parent"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent"-->
+<!--                android:src="@mipmap/xpl_pic"-->
+<!--                android:id="@+id/image"-->
+<!--                android:layout_width="24dp"-->
+<!--                android:layout_height="24dp">-->
+<!--            </ImageView>-->
+
+<!--            <ImageView-->
+<!--                app:layout_constraintRight_toLeftOf="@+id/video"-->
+<!--                app:layout_constraintLeft_toRightOf="@+id/image"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent"-->
+<!--                android:src="@mipmap/xpl_bq"-->
+<!--                android:id="@+id/emoji"-->
+<!--                android:layout_width="24dp"-->
+<!--                android:layout_height="24dp">-->
+<!--            </ImageView>-->
+
+<!--            <ImageView-->
+<!--                app:layout_constraintRight_toLeftOf="@+id/file"-->
+<!--                app:layout_constraintLeft_toRightOf="@+id/emoji"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent"-->
+<!--                android:src="@mipmap/xpl_video"-->
+<!--                android:id="@+id/video"-->
+<!--                android:layout_width="24dp"-->
+<!--                android:layout_height="24dp">-->
+<!--            </ImageView>-->
+
+<!--            <ImageView-->
+<!--                app:layout_constraintRight_toLeftOf="@+id/url"-->
+<!--                app:layout_constraintLeft_toRightOf="@+id/video"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent"-->
+<!--                android:src="@mipmap/xpl_wd"-->
+<!--                android:id="@+id/file"-->
+<!--                android:layout_width="24dp"-->
+<!--                android:layout_height="24dp">-->
+<!--            </ImageView>-->
+
+<!--            <ImageView-->
+<!--                app:layout_constraintRight_toRightOf="parent"-->
+<!--                app:layout_constraintLeft_toRightOf="@+id/file"-->
+<!--                app:layout_constraintBottom_toBottomOf="parent"-->
+<!--                app:layout_constraintTop_toTopOf="parent"-->
+<!--                android:src="@mipmap/xpl_url"-->
+<!--                android:id="@+id/url"-->
+<!--                android:layout_width="24dp"-->
+<!--                android:layout_height="24dp">-->
+<!--            </ImageView>-->
+
+<!--        </androidx.constraintlayout.widget.ConstraintLayout>-->
+
+<!--        <com.ruffian.library.widget.RView-->
+<!--            app:background_normal="@array/pay_slip_line"-->
+<!--            app:gradient_type="linear"-->
+<!--            app:gradient_orientation="TOP_BOTTOM"-->
+<!--            app:layout_constraintBottom_toTopOf="@+id/bottom_menu"-->
+<!--            app:layout_constraintRight_toRightOf="parent"-->
+<!--            app:layout_constraintLeft_toLeftOf="parent"-->
+<!--            android:layout_width="0dp"-->
+<!--            android:layout_height="5dp">-->
+<!--        </com.ruffian.library.widget.RView>-->
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:ignore="ResourceName">
+
+    <data>
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <com.ruffian.library.widget.RCheckBox
+            android:button="@null"
+            app:text_color_normal="@color/black_333333"
+            app:text_color_checked="@color/red_fa4848"
+            android:id="@+id/label"
+            android:gravity="center"
+            android:text="#销售跟进#"
+            android:textSize="13sp"
+            android:includeFontPadding="false"
+            android:paddingHorizontal="12dp"
+            app:border_width_normal="1dp"
+            app:border_color_normal="@color/gray_e2e2e2"
+            app:border_color_checked="@color/red_fa4848"
+            app:background_normal="@color/white_ffffff"
+            app:background_checked="@color/red_fa4848_alpha90"
+            app:corner_radius="15dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp">
+        </com.ruffian.library.widget.RCheckBox>
+
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
+
+

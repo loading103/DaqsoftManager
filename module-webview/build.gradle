@@ -1,0 +1,41 @@
+apply from: "../module.build.gradle"
+
+android {
+    defaultConfig {
+        //如果是独立模块，则使用当前组件的包名
+        if (isBuildModule.toBoolean()) {
+            applicationId "com.daqsoft.module_webview"
+            manifestPlaceholders = [
+                    CHANNEL_VALUE: "developer-default",
+                    APPLICATION_ID : applicationId
+            ]
+        }
+    }
+    //统一资源前缀，规范资源引用
+    resourcePrefix "module_webview_"
+}
+
+dependencies {
+    implementation fileTree(dir: "libs", include: ["*.jar"])
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.core:core-ktx:1.3.2'
+    implementation 'androidx.appcompat:appcompat:1.2.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.2'
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.2'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.3.0'
+
+
+
+    //组件依赖基础库
+    // 公共服务
+    api project(':library-common')
+    //组件中依赖阿里路由编译框架
+    kapt rootProject.ext.dependencies["arouter-compiler"]
+
+    // hilt
+    implementation rootProject.ext.dependencies["hilt-android"]
+    kapt rootProject.ext.dependencies["hilt-android-compiler"]
+    implementation rootProject.ext.dependencies["hilt-lifecycle-viewmodel"]
+    kapt rootProject.ext.dependencies["hilt-compiler"]
+}

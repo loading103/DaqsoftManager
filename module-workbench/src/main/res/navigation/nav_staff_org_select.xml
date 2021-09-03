@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto" android:id="@+id/nav_org_staff_select">
+
+    <fragment
+        android:id="@+id/module_workbench_staffselectfragment"
+        android:name="com.daqsoft.module_workbench.fragment.StaffSelectFragment"
+        android:label="StaffSelectFragment" >
+        <action
+            android:id="@+id/module_workbench_action_module_workbench_staffselectfragment_to_module_workbench_orgselectfragment2"
+            app:destination="@id/module_workbench_orgselectfragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/module_workbench_orgselectfragment"
+        android:name="com.daqsoft.module_workbench.fragment.OrgSelectFragment"
+        android:label="OrgSelectFragment" >
+        <action
+            android:id="@+id/module_workbench_action_module_workbench_orgselectfragment2_self"
+            app:destination="@id/module_workbench_orgselectfragment" />
+        <action
+            android:id="@+id/module_workbench_action_module_workbench_orgselectfragment2_to_module_workbench_staffselectfragment"
+            app:destination="@id/module_workbench_staffselectfragment" />
+    </fragment>
+</navigation>

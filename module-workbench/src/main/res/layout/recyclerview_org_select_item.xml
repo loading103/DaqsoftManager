@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:ignore="ResourceName">
+
+    <data>
+
+
+        <variable
+            name="viewModel"
+            type="com.daqsoft.module_workbench.viewmodel.itemviewmodel.OrgSelectItemViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <com.ruffian.library.widget.RCheckBox
+            android:gravity="center"
+            android:button="@null"
+            app:icon_src_checked="@mipmap/ygxz_selected"
+            app:icon_src_normal="@mipmap/ygxz_normal"
+            android:layout_marginLeft="20dp"
+            app:layout_constraintBottom_toBottomOf="@+id/dir"
+            app:layout_constraintTop_toTopOf="@+id/dir"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:id="@+id/checkbox"
+            android:layout_width="18dp"
+            android:layout_height="18dp">
+        </com.ruffian.library.widget.RCheckBox>
+
+
+        <com.ruffian.library.widget.RImageView
+            android:layout_marginTop="20dp"
+            android:layout_marginLeft="12dp"
+            app:corner_radius="5dp"
+            app:layout_constraintLeft_toRightOf="@id/checkbox"
+            app:layout_constraintTop_toTopOf="parent"
+            android:src="@mipmap/zzjg_bm"
+            android:id="@+id/dir"
+            android:layout_width="32dp"
+            android:layout_height="32dp">
+        </com.ruffian.library.widget.RImageView>
+
+
+        <TextView
+            android:text="@{viewModel.employeeObservable.name}"
+            tools:text="技术中心"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:textColor="@color/black_333333"
+            android:layout_marginLeft="12dp"
+            app:layout_constraintLeft_toRightOf="@+id/dir"
+            app:layout_constraintBottom_toBottomOf="@+id/dir"
+            app:layout_constraintTop_toTopOf="@+id/dir"
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </TextView>
+
+        <View
+            android:layout_marginTop="20dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="@+id/name"
+            app:layout_constraintTop_toBottomOf="@+id/dir"
+            android:background="@color/gray_e8e8e8"
+            android:layout_width="0dp"
+            android:layout_height="1dp">
+        </View>
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
+
+

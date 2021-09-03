@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#6200EE</color>
+    <color name="colorPrimaryDark">#3700B3</color>
+    <color name="colorAccent">#03DAC5</color>
+
+
+    <color name="gray_666666">#666666</color>
+    <color name="gray_d8d8d8">#d8d8d8</color>
+    <color name="gray_d9dadc">#d9dadc</color>
+
+    <color name="gray_e8e8e8">#e8e8e8</color>
+    <color name="gray_e2e2e2">#e2e2e2</color>
+
+    <color name="gray_ececec">#ececec</color>
+    <color name="gray_eaeaea">#eaeaea</color>
+    <color name="gray_f3f3f3">#f3f3f3</color>
+    <color name="gray_ffcaca">#ffcaca</color>
+
+    <color name="gray_fed1d1">#fed1d1</color>
+
+    <color name="black_333333">#333333</color>
+    <color name="black_000000">#000000</color>
+
+    <color name="white_ffffff">#ffffff</color>
+    <color name="white_ffffff_alpha50">#7fffffff</color>
+    <color name="white_ffffff_alpha70">#4cffffff</color>
+    <color name="white_ffffff_alpha100">#00ffffff</color>
+    <color name="white_ffcec9">#ffcec9</color>
+    <color name="white_f5f5f5">#f5f5f5</color>
+
+    <color name="gray_999999">#999999</color>
+    <color name="gray_cacaca">#cacaca</color>
+    <color name="gray_e4e4e4">#e4e4e4</color>
+    <color name="gray_c0c0c0">#c0c0c0</color>
+
+
+    <color name="red_fa4848">#fa4848</color>
+    <color name="red_fa4848_alpha90">#19fa4848</color>
+    <color name="red_ff9090">#ff9090</color>
+    <color name="red_fff1f1">#fff1f1</color>
+    <color name="red_ffe3e3">#ffe3e3</color>
+
+    <color name="green_23c070">#23c070</color>
+    <color name="green_23c070_alpha90">#1923c070</color>
+
+
+    <color name="orange_f6931f">#f6931f</color>
+    <color name="orange_f7c54e">#f7c54e</color>
+
+    <color name="yellow_f7c54e">#ff9e05</color>
+    <color name="yellow_ffe641">#ffe641</color>
+    <color name="color_fa4848">#fa4848</color>
+    <color name="white_e8e8e8">#e8e8e8</color>
+    <color name="white_ffe3e3">#ffe3e3</color>
+    <color name="color_333333">#333333</color>
+    <color name="white_fa4848">#fa4848</color>
+    <color name="color_ff6d6b">#ff6d6b</color>
+    <color name="white_e2e2e2">#e2e2e2</color>
+    <color name="color_ffcec9">#ffcec9</color>
+    <color name="color_23c070">#23c070</color>
+    <color name="color_ff5252">#ff5252</color>
+    <color name="color_ff7920">#ff7920</color>
+    <color name="module_workbench_color_ff9e05">#ff9e05</color>
+    <color name="color_ff9e05">#ff9e05</color>
+    <color name="yellow_f8d7a5">#f8d7a5</color>
+
+</resources>

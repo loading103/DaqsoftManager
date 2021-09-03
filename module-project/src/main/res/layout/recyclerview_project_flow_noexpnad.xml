@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:ignore="ResourceName">
+
+    <data>
+
+        <import type="com.daqsoft.module_project.R" />
+        <import type="android.view.View"/>
+        <variable
+            name="viewModel"
+            type="com.daqsoft.module_project.viewmodel.itemviewmodel.ProjectDetailFlowNoExpand" />
+
+    </data>
+
+    <RelativeLayout
+        android:id="@+id/ll_root"
+        android:layout_width="match_parent"
+        android:layout_height="50dp">
+        <TextView
+            android:id="@+id/tv_content"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/line_right_distance"
+            android:layout_toRightOf="@+id/iv_indicator"
+            android:paddingBottom="@dimen/panel_header_padding"
+            android:paddingTop="@dimen/panel_header_padding"
+            android:textColor="@color/black_333333"
+            android:textSize="15sp"
+            android:text="@{viewModel.titleObservable}"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/line_right_distance"
+            android:layout_toRightOf="@+id/tv_content"
+            android:text="KCP"
+            android:gravity="center"
+            android:paddingHorizontal="5dp"
+            android:paddingVertical="2dp"
+            android:layout_alignTop="@+id/tv_content"
+            android:layout_marginTop="12dp"
+            android:visibility="@{viewModel.showKcpObservable?View.VISIBLE:View.GONE}"
+            android:textColor="@color/color_fa4848"
+            android:background="@drawable/shape_protect_kcp"
+            android:textSize="10sp" />
+        <View
+            android:layout_marginLeft="6dp"
+            android:id="@+id/view_line1"
+            android:layout_width="1.2dp"
+            android:layout_height="20dp"
+            android:background="@color/color_ebebeb"/>
+        <View
+            android:layout_marginLeft="6dp"
+            android:id="@+id/view_line2"
+            android:layout_width="1.2dp"
+            android:layout_height="match_parent"
+            android:layout_below="@+id/view_line1"
+            android:visibility='@{viewModel.islastObservable?View.GONE:View.VISIBLE}'
+            android:background="@color/color_ebebeb"/>
+        <ImageView
+            android:id="@+id/iv_indicator"
+            android:layout_width="10dp"
+            android:layout_height="10dp"
+            android:layout_alignBottom="@+id/tv_content"
+            android:layout_alignTop="@+id/tv_content"
+            android:layout_marginLeft="1.5dp"
+            android:src="@drawable/shape_project_white_circle" />
+
+    </RelativeLayout>
+
+</layout>
+
+

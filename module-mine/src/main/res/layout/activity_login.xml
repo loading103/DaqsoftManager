@@ -1,0 +1,339 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+
+
+        <import type="com.daqsoft.module_mine.R" />
+
+        <variable
+            name="viewModel"
+            type="com.daqsoft.module_mine.viewmodel.LoginViewModel" />
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:background="@color/white_ffffff"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:scaleType="centerCrop"
+            android:src="@mipmap/login_bg"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="0dp"
+            android:layout_height="0dp">
+        </ImageView>
+
+
+        <com.ruffian.library.widget.RImageView
+            android:scaleType="centerCrop"
+            app:url="@{viewModel.companyInfo.companyLogo}"
+            app:corner_radius="5dp"
+            android:layout_marginTop="50dp"
+            app:placeholderRes="@{R.mipmap.login_logo}"
+            android:src="@mipmap/login_logo"
+            android:layout_marginStart="20dp"
+            android:id="@+id/icon"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_width="28dp"
+            android:layout_height="28dp">
+        </com.ruffian.library.widget.RImageView>
+
+        <TextView
+            android:text="@{viewModel.companyInfo.coverCompanySystemName(),default = @string/xiaoqizhiguan}"
+            android:textColor="@color/black_333333"
+            android:textSize="20sp"
+            android:layout_marginLeft="12dp"
+            app:layout_constraintLeft_toRightOf="@+id/icon"
+            app:layout_constraintBottom_toBottomOf="@+id/icon"
+            app:layout_constraintTop_toTopOf="@+id/icon"
+            android:id="@+id/name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </TextView>
+
+
+        <TextView
+            android:layout_marginTop="80dp"
+            android:id="@+id/welcome"
+            android:text="@string/module_mine_welcome"
+            android:textStyle="bold"
+            android:textSize="28sp"
+            android:textColor="@color/black_333333"
+            android:layout_marginLeft="20dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </TextView>
+
+        <ImageView
+            android:src="@mipmap/login_account_number_icon"
+            android:layout_marginTop="40dp"
+            android:layout_marginLeft="20dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/welcome"
+            android:id="@+id/account_number_icon"
+            android:layout_width="16dp"
+            android:layout_height="16dp">
+        </ImageView>
+
+        <TextView
+            android:textColor="@color/black_333333"
+            android:textSize="16sp"
+            android:id="@+id/account_number"
+            android:text="+86"
+            android:layout_marginLeft="10dp"
+            app:layout_constraintTop_toTopOf="@+id/account_number_icon"
+            app:layout_constraintLeft_toRightOf="@id/account_number_icon"
+            app:layout_constraintBottom_toBottomOf="@+id/account_number_icon"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </TextView>
+
+        <EditText
+            android:inputType="phone"
+            app:textChanged="@{viewModel.accountNumberChangedListener}"
+            android:textSize="16sp"
+            android:textColor="@color/black_333333"
+            android:hint="@string/module_mine_please_enter_phone_number"
+            android:textColorHint="@color/gray_999999"
+            app:layout_goneMarginRight="20dp"
+            android:maxLength="11"
+            app:layout_constraintRight_toLeftOf="@+id/account_number_clear"
+            android:text="@={viewModel.accountNumber}"
+            android:background="@null"
+            android:layout_marginHorizontal="12dp"
+            app:layout_constraintLeft_toRightOf="@+id/account_number"
+            app:layout_constraintBaseline_toBaselineOf="@+id/account_number"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+        </EditText>
+
+        <ImageView
+            app:onClickCommand="@{viewModel.accountNumberCleanOnClick}"
+            android:visibility="@{viewModel.accountNumberCleanVisible}"
+            android:src="@mipmap/login_clean"
+            android:layout_marginRight="20dp"
+            app:layout_constraintRight_toRightOf="parent"
+            android:id="@+id/account_number_clear"
+            app:layout_constraintTop_toTopOf="@+id/account_number_icon"
+            app:layout_constraintBottom_toBottomOf="@id/account_number_icon"
+            android:layout_width="11dp"
+            android:layout_height="11dp">
+        </ImageView>
+
+        <View
+            android:id="@+id/account_number_dividing_line"
+            android:layout_marginHorizontal="20dp"
+            android:background="@color/gray_e2e2e2"
+            android:layout_marginTop="25dp"
+            app:layout_constraintTop_toBottomOf="@id/account_number_icon"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_width="0dp"
+            android:layout_height="1dp">
+        </View>
+
+
+        <ImageView
+            android:src="@mipmap/login_password"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="20dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/account_number_dividing_line"
+            android:id="@+id/password_icon"
+            android:layout_width="16dp"
+            android:layout_height="16dp">
+        </ImageView>
+
+
+        <EditText
+            android:maxLength="20"
+            android:id="@+id/password"
+            app:textChanged="@{viewModel.passwordChangedListener}"
+            android:inputType="textPassword"
+            android:hint="@string/module_mine_please_enter_log_in_password"
+            android:textColorHint="@color/gray_999999"
+            android:textColor="@color/black_333333"
+            android:textSize="16sp"
+            app:layout_goneMarginRight="20dp"
+            app:layout_constraintTop_toTopOf="@+id/password_icon"
+            app:layout_constraintBottom_toBottomOf="@+id/password_icon"
+            app:layout_constraintRight_toLeftOf="@+id/password_clear"
+            android:text="@={viewModel.password}"
+            android:background="@null"
+            android:layout_marginHorizontal="10dp"
+            app:layout_constraintLeft_toRightOf="@+id/password_icon"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+        </EditText>
+
+        <ImageView
+            app:onClickCommand="@{viewModel.passwordCleanOnClick}"
+            app:layout_goneMarginRight="20dp"
+            android:layout_marginRight="16dp"
+            android:src="@mipmap/login_clean"
+            app:layout_constraintRight_toLeftOf="@+id/password_display"
+            android:id="@+id/password_clear"
+            app:layout_constraintBottom_toBottomOf="@id/password_icon"
+            app:layout_constraintTop_toTopOf="@+id/password_icon"
+            android:layout_width="11dp"
+            android:layout_height="11dp">
+        </ImageView>
+
+        <ImageView
+            android:src="@mipmap/login_invisible"
+            app:onClickCommand="@{viewModel.passwordVisibleOnClick}"
+            app:loadResImage="@{viewModel.passwordVisibleIcon}"
+            android:layout_marginRight="20dp"
+            app:layout_constraintBottom_toBottomOf="@+id/password_icon"
+            app:layout_constraintTop_toTopOf="@+id/password_icon"
+            app:layout_constraintRight_toRightOf="parent"
+            android:id="@+id/password_display"
+            android:layout_width="16dp"
+            android:layout_height="16dp">
+        </ImageView>
+
+        <androidx.constraintlayout.widget.Group
+            android:visibility="@{viewModel.passwordCleanVisible}"
+            app:constraint_referenced_ids="password_clear,password_display"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </androidx.constraintlayout.widget.Group>
+
+        <View
+            android:id="@+id/password_dividing_line"
+            android:layout_marginHorizontal="20dp"
+            android:background="@color/gray_e2e2e2"
+            android:layout_marginTop="25dp"
+            app:layout_constraintTop_toBottomOf="@id/password_icon"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_height="1dp"
+            android:layout_width="0dp">
+        </View>
+
+
+
+
+        <ImageView
+            android:src="@mipmap/login_yzm"
+            android:layout_marginTop="25dp"
+            android:layout_marginLeft="20dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/password_dividing_line"
+            android:id="@+id/verify_code_icon"
+            android:layout_width="16dp"
+            android:layout_height="16dp">
+        </ImageView>
+
+        <EditText
+            android:maxLength="4"
+            android:id="@+id/verify_code"
+            android:hint="@string/please_enter_verification_code"
+            android:textColorHint="@color/gray_999999"
+            android:textColor="@color/black_333333"
+            android:textSize="16sp"
+            app:layout_goneMarginRight="20dp"
+            app:layout_constraintTop_toTopOf="@+id/verify_code_icon"
+            app:layout_constraintBottom_toBottomOf="@+id/verify_code_icon"
+            app:layout_constraintLeft_toRightOf="@+id/verify_code_icon"
+            app:layout_constraintRight_toLeftOf="@+id/verify_code_image"
+            android:text="@={viewModel.verifyCode}"
+            android:background="@null"
+            android:layout_marginHorizontal="10dp"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+        </EditText>
+
+        <ImageView
+            app:onClickCommand="@{viewModel.verifyCodeOnClick}"
+            android:layout_marginRight="20dp"
+            app:layout_constraintBottom_toBottomOf="@+id/verify_code_icon"
+            app:layout_constraintTop_toTopOf="@+id/verify_code_icon"
+            app:layout_constraintRight_toRightOf="parent"
+            android:id="@+id/verify_code_image"
+            android:layout_width="90dp"
+            android:layout_height="30dp">
+        </ImageView>
+
+        <View
+            android:id="@+id/verify_code_dividing_line"
+            android:layout_marginHorizontal="20dp"
+            android:background="@color/gray_e2e2e2"
+            android:layout_marginTop="25dp"
+            app:layout_constraintTop_toBottomOf="@id/verify_code_icon"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_height="1dp"
+            android:layout_width="0dp">
+        </View>
+
+        <androidx.constraintlayout.widget.Group
+            android:visibility="@{viewModel.verifyCodeVisible}"
+            app:constraint_referenced_ids="verify_code_icon,verify_code,verify_code_image,verify_code_dividing_line"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </androidx.constraintlayout.widget.Group>
+
+        <TextView
+            android:visibility="@{viewModel.errorMessageVisible}"
+            android:textSize="12sp"
+            android:drawablePadding="5dp"
+            android:drawableLeft="@mipmap/login_error_message"
+            android:id="@+id/error_message"
+            android:textColor="@color/red_fa4848"
+            android:text="@{viewModel.errorMessage}"
+            android:layout_marginHorizontal="20dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/verify_code_dividing_line"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+        </TextView>
+
+
+        <com.ruffian.library.widget.RTextView
+            android:enabled="false"
+            app:onClickCommand="@{viewModel.logInOnClick}"
+            android:gravity="center"
+            android:text="@string/module_mine_log_in"
+            android:textSize="17sp"
+            android:textColor="@color/white_ffffff"
+            app:background_normal="@color/red_ffb0b0"
+            app:corner_radius="5dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            android:layout_marginHorizontal="20dp"
+            android:layout_marginTop="16dp"
+            app:layout_constraintTop_toBottomOf="@+id/error_message"
+            android:id="@+id/log_in"
+            android:layout_width="0dp"
+            android:layout_height="44dp">
+        </com.ruffian.library.widget.RTextView>
+
+
+        <TextView
+            android:textColor="@color/gray_999999"
+            android:textSize="12sp"
+            android:text="@string/module_mine_forget_password_tips"
+            android:layout_marginTop="16dp"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/log_in"
+            android:id="@+id/tips"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+        </TextView>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+            android:id="@+id/icon"
+            android:layout_width="20dp"
+            android:layout_height="20dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="8dp" />
+
+    <me.majiajie.pagerbottomtabstrip.internal.BaselineLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|center_horizontal"
+            android:clipToPadding="false"
+            android:paddingBottom="8dp">
+
+        <TextView
+                android:id="@+id/title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:maxLines="1"
+                android:textSize="11sp"
+                tools:text="" />
+
+    </me.majiajie.pagerbottomtabstrip.internal.BaselineLayout>
+
+    <com.ruffian.library.widget.RTextView
+        android:includeFontPadding="false"
+        android:paddingHorizontal="4dp"
+        android:id="@+id/messages"
+        android:layout_marginTop="4dp"
+        android:translationX="12dp"
+        android:layout_gravity="center_horizontal"
+        android:gravity="center"
+        android:text="8"
+        android:textSize="9sp"
+        android:textColor="@color/white_ffffff"
+        app:border_width_normal="2dp"
+        app:border_color_normal="@color/white_ffffff"
+        app:corner_radius="15dp"
+        app:background_normal="@color/red_fa4848"
+        android:layout_width="wrap_content"
+        android:minWidth="13dp"
+        android:layout_height="13dp">
+    </com.ruffian.library.widget.RTextView>
+
+</merge>

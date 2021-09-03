@@ -1,0 +1,17 @@
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="com.daqsoft.module_project">
+
+    <application>
+        <activity android:name=".activity.ProjectDetailActivity" />
+        <activity android:name=".activity.ProjectFlowActivity" />
+        <activity android:name=".activity.ProjectSearchActivity" />
+        <activity android:name=".activity.ProjectDynamicsActivity" />
+        <activity android:name=".activity.ProjectBaseInforActivity" />
+        <activity android:name=".activity.ProjectUpdateInforActivity"/>
+        <activity android:name=".activity.ProjectAddActivity"/>
+        <activity android:name=".activity.ProjectChoseOwnerActivity"/>
+        <activity android:name=".activity.ProjectAccountActivity"
+            android:windowSoftInputMode="stateAlwaysHidden|adjustResize"/>
+    </application>
+
+</manifest>

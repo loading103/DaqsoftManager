@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    tools:ignore="ResourceName">
+
+    <data>
+
+        <import type="com.daqsoft.module_mine.R" />
+
+        <variable
+            name="viewModel"
+            type="com.daqsoft.module_mine.viewmodel.itemviewmodel.WorkCalendarItemViewModel" />
+
+    </data>
+
+    <com.ruffian.library.widget.RConstraintLayout
+        app:background_normal="@color/white_ffffff"
+        app:corner_radius="13dp"
+        android:padding="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+       <ImageView
+           android:scaleType="fitXY"
+           app:imageSrc="@{viewModel.backgroundImage}"
+           android:id="@+id/bg"
+           app:layout_constraintRight_toRightOf="parent"
+           app:layout_constraintLeft_toLeftOf="parent"
+           app:layout_constraintTop_toTopOf="parent"
+           app:layout_constraintBottom_toBottomOf="parent"
+           android:src="@mipmap/mine_pic_jjr_9png"
+           android:layout_width="0dp"
+           android:layout_height="0dp">
+       </ImageView>
+
+        <TextView
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="@id/bg"
+            app:layout_constraintTop_toTopOf="@id/bg"
+            android:layout_marginTop="25dp"
+            android:layout_marginHorizontal="16dp"
+            android:textColor="@color/white_ffffff"
+            android:textSize="13sp"
+            android:text="@{viewModel.current}"
+            android:id="@+id/date"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+        </TextView>
+
+        <TextView
+            android:text="@{viewModel.dayObservable.dayInfo}"
+            android:textSize="23sp"
+            android:textColor="@color/white_ffffff"
+            android:layout_marginTop="8dp"
+            app:layout_constraintLeft_toLeftOf="@+id/date"
+            app:layout_constraintTop_toBottomOf="@+id/date"
+            app:layout_constraintRight_toRightOf="@+id/date"
+            android:id="@+id/tips"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+        </TextView>
+
+        <TextView
+            app:layout_goneMarginBottom="16dp"
+            android:text="@{viewModel.dayObservable.restDay.slogan}"
+            android:textSize="12sp"
+            android:textColor="@color/white_ffffff"
+            android:layout_marginTop="15dp"
+            app:layout_constraintRight_toRightOf="@+id/tips"
+            app:layout_constraintLeft_toLeftOf="@+id/tips"
+            app:layout_constraintTop_toBottomOf="@+id/tips"
+            app:layout_constraintBottom_toTopOf="@id/caring_cl"
+            android:layout_marginBottom="16dp"
+            android:id="@+id/slogan"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+        </TextView>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_goneMarginBottom="16dp"
+            android:layout_marginHorizontal="8dp"
+            android:layout_marginBottom="16dp"
+            android:background="@android:color/transparent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/slogan"
+            android:id="@+id/caring_cl"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content">
+
+            <com.daqsoft.library_base.widget.flowlayout.TagFlowLayout
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="parent"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintRight_toRightOf="parent"
+                app:max_select="1"
+                android:background="@android:color/transparent"
+                android:id="@+id/caring"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content">
+            </com.daqsoft.library_base.widget.flowlayout.TagFlowLayout>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </com.ruffian.library.widget.RConstraintLayout>
+
+
+</layout>
+
+
